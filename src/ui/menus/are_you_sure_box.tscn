@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://ctebcabyvcq82"]
+
+[ext_resource type="Texture2D" uid="uid://dxk2fg62wf0cd" path="res://assets/graphics/UI/32x32-Tilesheet.png" id="1_vvq3u"]
+[ext_resource type="PackedScene" uid="uid://j3mvoh6yllo1" path="res://src/ui/buttons/custom_button.tscn" id="2_iulpw"]
+[ext_resource type="Script" uid="uid://bgla3722hxtsr" path="res://src/ui/menus/scripts/are_you_sure_box.gd" id="2_uvyjr"]
+[ext_resource type="LabelSettings" uid="uid://d2gi0duhtgk6n" path="res://src/resources/themes/basic_label_settings.tres" id="3_3g4c3"]
+
+[node name="AreYouSureBox" type="NinePatchRect" unique_id=1783175538]
+offset_right = 235.0
+offset_bottom = 81.0
+texture = ExtResource("1_vvq3u")
+region_rect = Rect2(0, 0, 96, 96)
+patch_margin_left = 22
+patch_margin_top = 22
+patch_margin_right = 22
+patch_margin_bottom = 22
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 2
+script = ExtResource("2_uvyjr")
+box_text = "\"Are you sure you want to quit?\""
+
+[node name="Label" type="Label" parent="." unique_id=1370603912]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.5
+offset_top = 12.0
+offset_right = 96.5
+offset_bottom = 32.0
+grow_horizontal = 2
+label_settings = ExtResource("3_3g4c3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1832352701]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -98.5
+offset_top = -48.0
+offset_right = 98.5
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="YesButton" parent="HBoxContainer" unique_id=1461449071 instance=ExtResource("2_iulpw")]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "Yes
+"
+
+[node name="NoButton" parent="HBoxContainer" unique_id=1232585961 instance=ExtResource("2_iulpw")]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "No"

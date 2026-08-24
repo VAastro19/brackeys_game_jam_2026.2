@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://j3mvoh6yllo1"]
+
+[ext_resource type="Theme" uid="uid://j15cnci82xwc" path="res://src/resources/themes/basic_theme.tres" id="1_wr04j"]
+[ext_resource type="Script" uid="uid://cmrn7ygu3mv5q" path="res://src/ui/buttons/scripts/button_sfx.gd" id="2_8ygs4"]
+[ext_resource type="Script" uid="uid://cntlru4yidmrf" path="res://src/ui/buttons/scripts/button_visuals.gd" id="2_pnlrx"]
+
+[node name="CustomButton" type="Button" unique_id=1461449071]
+offset_right = 104.0
+offset_bottom = 28.0
+theme = ExtResource("1_wr04j")
+text = "Button"
+script = ExtResource("2_pnlrx")
+
+[node name="ButtonSFX" type="AudioStreamPlayer" parent="." unique_id=1071180284]
+bus = &"SFX"
+script = ExtResource("2_8ygs4")

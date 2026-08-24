@@ -1,0 +1,60 @@
+[gd_resource type="Theme" format=3 uid="uid://j15cnci82xwc"]
+
+[ext_resource type="Texture2D" uid="uid://dxk2fg62wf0cd" path="res://assets/graphics/UI/32x32-Tilesheet.png" id="1_830i5"]
+[ext_resource type="StyleBox" uid="uid://dknahpel6jkqf" path="res://src/resources/styles/disabled_stylebox.tres" id="1_hruj4"]
+[ext_resource type="StyleBox" uid="uid://b70foculabegx" path="res://src/resources/styles/hover_stylebox.tres" id="2_ayx8h"]
+[ext_resource type="StyleBox" uid="uid://cpx44gdsclnnb" path="res://src/resources/styles/normal_stylebox.tres" id="3_beka0"]
+[ext_resource type="StyleBox" uid="uid://bv21xdp7w203h" path="res://src/resources/styles/pressed_stylebox.tres" id="4_ayx8h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_beka0"]
+atlas = ExtResource("1_830i5")
+region = Rect2(35, 236, 27, 6)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jedq1"]
+texture = ExtResource("1_830i5")
+texture_margin_left = 14.0
+texture_margin_top = 3.0
+texture_margin_right = 14.0
+texture_margin_bottom = 3.0
+expand_margin_left = 14.0
+expand_margin_right = 14.0
+region_rect = Rect2(102, 205, 84, 7)
+modulate_color = Color(1.5720325, 1.5720325, 1.5720325, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mi4rh"]
+texture = ExtResource("1_830i5")
+texture_margin_left = 14.0
+texture_margin_top = 3.0
+texture_margin_right = 14.0
+texture_margin_bottom = 3.0
+expand_margin_left = 14.0
+expand_margin_right = 14.0
+region_rect = Rect2(102, 141, 84, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_082uc"]
+atlas = ExtResource("1_830i5")
+region = Rect2(73, 267, 11, 12)
+
+[resource]
+Button/constants/outline_size = 4
+Button/styles/disabled = ExtResource("1_hruj4")
+Button/styles/hover = ExtResource("2_ayx8h")
+Button/styles/normal = ExtResource("3_beka0")
+Button/styles/pressed = ExtResource("4_ayx8h")
+CheckBox/styles/disabled = ExtResource("1_hruj4")
+CheckBox/styles/hover = ExtResource("2_ayx8h")
+CheckBox/styles/hover_pressed = ExtResource("2_ayx8h")
+CheckBox/styles/normal = ExtResource("3_beka0")
+CheckBox/styles/pressed = ExtResource("4_ayx8h")
+HSlider/icons/grabber = SubResource("AtlasTexture_beka0")
+HSlider/icons/grabber_disabled = SubResource("AtlasTexture_beka0")
+HSlider/icons/grabber_highlight = SubResource("AtlasTexture_beka0")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_jedq1")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_jedq1")
+HSlider/styles/slider = SubResource("StyleBoxTexture_mi4rh")
+OptionButton/constants/arrow_margin = 12
+OptionButton/icons/arrow = SubResource("AtlasTexture_082uc")
+OptionButton/styles/disabled = ExtResource("1_hruj4")
+OptionButton/styles/hover = ExtResource("2_ayx8h")
+OptionButton/styles/normal = ExtResource("3_beka0")
+OptionButton/styles/pressed = ExtResource("4_ayx8h")
