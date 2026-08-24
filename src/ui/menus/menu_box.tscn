@@ -3,6 +3,15 @@
 [ext_resource type="Theme" uid="uid://j15cnci82xwc" path="res://src/resources/themes/basic_theme.tres" id="1_luvna"]
 [ext_resource type="Texture2D" uid="uid://dxk2fg62wf0cd" path="res://assets/graphics/UI/32x32-Tilesheet.png" id="1_ybgoh"]
 [ext_resource type="PackedScene" uid="uid://j3mvoh6yllo1" path="res://src/ui/buttons/custom_button.tscn" id="2_luvna"]
+[ext_resource type="Script" uid="uid://wuke34xloh47" path="res://src/ui/menus/scripts/menu_box.gd" id="3_uha1c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_082uc"]
+atlas = ExtResource("1_ybgoh")
+region = Rect2(324, 192, 56, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwp2m"]
+atlas = ExtResource("1_ybgoh")
+region = Rect2(294, 266, 85, 10)
 
 [node name="MenuBox" type="NinePatchRect" unique_id=776779211]
 offset_right = 180.0
@@ -16,6 +25,7 @@ patch_margin_right = 22
 patch_margin_bottom = 22
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 1
+script = ExtResource("3_uha1c")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=600344241]
 layout_mode = 1
@@ -50,3 +60,31 @@ text = "Credits"
 layout_mode = 2
 text = "Quit
 "
+
+[node name="TopDetail" type="TextureRect" parent="." unique_id=75743690]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -53.333336
+offset_top = -40.0
+offset_right = 53.333344
+grow_horizontal = 2
+texture = SubResource("AtlasTexture_082uc")
+expand_mode = 3
+
+[node name="BottomDetail" type="TextureRect" parent="." unique_id=1889361369]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -76.5
+offset_right = 76.5
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("AtlasTexture_pwp2m")
+expand_mode = 3
+flip_v = true

@@ -1,6 +1,9 @@
 # settings_panel.gd
 extends NinePatchRect
 
+@export var button_name: String = "Back"
+
+@onready var back_button: Button = $MarginContainer/VBoxContainer/BackButton
 @onready var resolutions_button: OptionButton = $MarginContainer/VBoxContainer/ResolutionsButton
 @onready var fullscreen_button: CheckBox = $MarginContainer/VBoxContainer/FullscreenButton
 @onready var master_slider: HSlider = $MarginContainer/VBoxContainer/SlidersVBoxContainer/MasterSlider
@@ -25,6 +28,9 @@ var music_index: int
 var sfx_index: int
 
 func _ready() -> void:
+	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
+		fullscreen_button.button_pressed = true
+	
 	master_index = AudioServer.get_bus_index("Master")
 	music_index = AudioServer.get_bus_index("Music")
 	sfx_index = AudioServer.get_bus_index("SFX")
@@ -32,6 +38,8 @@ func _ready() -> void:
 	master_slider.value = _get_volume(master_index)
 	music_slider.value = _get_volume(music_index)
 	sfx_slider.value = _get_volume(sfx_index)
+	
+	back_button.text = button_name
 	
 	# Initial reesolution for ease of life
 	_on_resolutions_button_item_selected(6)

@@ -5,6 +5,10 @@
 [ext_resource type="Script" uid="uid://bgla3722hxtsr" path="res://src/ui/menus/scripts/are_you_sure_box.gd" id="2_uvyjr"]
 [ext_resource type="LabelSettings" uid="uid://d2gi0duhtgk6n" path="res://src/resources/themes/basic_label_settings.tres" id="3_3g4c3"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3g4c3"]
+atlas = ExtResource("1_vvq3u")
+region = Rect2(294, 266, 85, 10)
+
 [node name="AreYouSureBox" type="NinePatchRect" unique_id=1783175538]
 offset_right = 235.0
 offset_bottom = 81.0
@@ -59,3 +63,19 @@ text = "Yes
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 text = "No"
+
+[node name="BottomDetail" type="TextureRect" parent="." unique_id=1963213066]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -97.5
+offset_right = 97.5
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("AtlasTexture_3g4c3")
+expand_mode = 3
+flip_v = true
