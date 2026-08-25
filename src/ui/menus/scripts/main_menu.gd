@@ -3,6 +3,7 @@ extends Control
 
 @onready var menu_box: NinePatchRect = $MenuBox
 @onready var settings_panel: NinePatchRect = $SettingsPanel
+@onready var credits_panel: NinePatchRect = $CreditsPanel
 @onready var are_you_sure_box: NinePatchRect = $AreYouSureBox
 
 func _ready() -> void:
@@ -15,6 +16,7 @@ func _ready() -> void:
 	are_you_sure_box.no_button.pressed.connect(_on_no_button_pressed)
 	
 	settings_panel.back_button.pressed.connect(_on_back_button_pressed)
+	credits_panel.back_button.pressed.connect(_on_back_button_pressed)
 
 ### --- MENU BOX BUTTONS --- ###
 func _on_play_button_pressed() -> void:
@@ -23,16 +25,19 @@ func _on_play_button_pressed() -> void:
 func _on_settings_button_pressed() -> void:
 	menu_box.visible = false
 	settings_panel.visible = true
+	credits_panel.visible = false
 	are_you_sure_box.visible = false
 
 func _on_credits_button_pressed() -> void:
 	menu_box.visible = false
 	settings_panel.visible = false
-	are_you_sure_box.visible = true
+	credits_panel.visible = true
+	are_you_sure_box.visible = false
 
 func _on_quit_button_pressed() -> void:
 	menu_box.visible = false
 	settings_panel.visible = false
+	credits_panel.visible = false
 	are_you_sure_box.visible = true
 
 ### --- ARE YOU SURE POPUP BUTTONS --- ###
@@ -42,10 +47,12 @@ func _on_yes_button_pressed() -> void:
 func _on_no_button_pressed() -> void:
 	menu_box.visible = true
 	settings_panel.visible = false
+	credits_panel.visible = false
 	are_you_sure_box.visible = false
 
 ### --- SETTINGS PANEL BUTTONS --- ###
 func _on_back_button_pressed() -> void:
 	menu_box.visible = true
 	settings_panel.visible = false
+	credits_panel.visible = false
 	are_you_sure_box.visible = false

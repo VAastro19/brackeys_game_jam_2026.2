@@ -3,7 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://dchpgm1gr5n72" path="res://src/ui/menus/menu_box.tscn" id="1_7lrnf"]
 [ext_resource type="Script" uid="uid://bip0n464er0bl" path="res://src/ui/menus/scripts/main_menu.gd" id="1_xaiw4"]
 [ext_resource type="PackedScene" uid="uid://bigdhytncwuij" path="res://src/ui/menus/settings_panel.tscn" id="2_wuc7m"]
+[ext_resource type="PackedScene" uid="uid://6x5yultxc28" path="res://src/ui/menus/credits_panel.tscn" id="4_jmap8"]
 [ext_resource type="PackedScene" uid="uid://ctebcabyvcq82" path="res://src/ui/menus/are_you_sure_box.tscn" id="4_vs67m"]
+[ext_resource type="PackedScene" uid="uid://c5tmbiwoeg8xx" path="res://src/ui/menus/corner_details.tscn" id="6_y3puo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_082uc"]
 bg_color = Color(0, 0, 0, 1)
@@ -55,6 +57,21 @@ offset_bottom = 140.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="CreditsPanel" parent="." unique_id=623353824 instance=ExtResource("4_jmap8")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.0
+offset_top = -120.0
+offset_right = 93.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="AreYouSureBox" parent="." unique_id=1783175538 instance=ExtResource("4_vs67m")]
 visible = false
 layout_mode = 1
@@ -70,3 +87,6 @@ offset_bottom = 40.5
 grow_horizontal = 2
 grow_vertical = 2
 box_text = "Are you sure you want to quit?"
+
+[node name="CornerDetails" parent="." unique_id=1525519473 instance=ExtResource("6_y3puo")]
+layout_mode = 1

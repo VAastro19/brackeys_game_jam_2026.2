@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://c5tmbiwoeg8xx"]
+
+[ext_resource type="Texture2D" uid="uid://dxk2fg62wf0cd" path="res://assets/graphics/UI/32x32-Tilesheet.png" id="1_08rv5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_082uc"]
+atlas = ExtResource("1_08rv5")
+region = Rect2(191, 191, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwp2m"]
+atlas = ExtResource("1_08rv5")
+region = Rect2(294, 266, 85, 10)
+
+[node name="CornerDetails" type="Control" unique_id=1525519473]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopLeftDetail" type="TextureRect" parent="." unique_id=1979478110]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 60.0
+texture = SubResource("AtlasTexture_082uc")
+expand_mode = 3
+
+[node name="TopRightDetail" type="TextureRect" parent="." unique_id=932302556]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -60.0
+offset_bottom = 60.0
+grow_horizontal = 0
+texture = SubResource("AtlasTexture_082uc")
+expand_mode = 3
+flip_h = true
+
+[node name="BottomRightDetail" type="TextureRect" parent="." unique_id=1668140368]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = -60.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_082uc")
+expand_mode = 3
+flip_h = true
+flip_v = true
+
+[node name="BottomLeftDetail" type="TextureRect" parent="." unique_id=1274455316]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -60.0
+offset_right = 60.0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_082uc")
+expand_mode = 3
+flip_v = true
+
+[node name="LeftDetail" type="TextureRect" parent="." unique_id=1883115039]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -98.0
+offset_right = 221.5
+offset_bottom = -75.0
+grow_vertical = 2
+rotation = 1.5707964
+texture = SubResource("AtlasTexture_pwp2m")
+expand_mode = 3
+
+[node name="RightDetail" type="TextureRect" parent="." unique_id=1671616610]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -98.0
+offset_right = 192.5
+offset_bottom = -75.0
+grow_horizontal = 0
+grow_vertical = 2
+rotation = 1.5707964
+texture = SubResource("AtlasTexture_pwp2m")
+expand_mode = 3
+flip_v = true

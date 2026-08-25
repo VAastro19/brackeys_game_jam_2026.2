@@ -3,6 +3,7 @@ extends Control
 
 @onready var settings_panel: NinePatchRect = $SettingsPanel
 @onready var are_you_sure_box: NinePatchRect = $AreYouSureBox
+@onready var corner_details: Control = $CornerDetails
 
 func _ready() -> void:
 	settings_panel.back_button.pressed.connect(_on_quit_button_pressed)
@@ -21,6 +22,7 @@ func _on_quit_button_pressed() -> void:
 
 func _on_yes_button_pressed() -> void:
 	are_you_sure_box.visible = false
+	corner_details.visible = false
 	SceneLoader.load_scene("uid://ci0ayyg4ero1o") # Load main menu
 
 func _on_no_button_pressed() -> void:
