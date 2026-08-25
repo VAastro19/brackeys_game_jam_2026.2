@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://b3qe3uyn8l62e"]
+
+[ext_resource type="Texture2D" uid="uid://75ikunytv0ac" path="res://assets/graphics/Tileset/AltarSpritesheet.png" id="1_p4tcs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwk0p"]
+atlas = ExtResource("1_p4tcs")
+region = Rect2(0, 0, 96, 145)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpn11"]
+atlas = ExtResource("1_p4tcs")
+region = Rect2(96, 0, 96, 145)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsi0j"]
+atlas = ExtResource("1_p4tcs")
+region = Rect2(192, 0, 96, 145)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fcum"]
+atlas = ExtResource("1_p4tcs")
+region = Rect2(288, 0, 96, 145)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_082uc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwk0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpn11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsi0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fcum")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pwp2m"]
+size = Vector2(68, 70)
+
+[node name="GoblinTemple" type="StaticBody2D" unique_id=1242097092]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1425563496]
+position = Vector2(0, 44)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_082uc")
+autoplay = "default"
+frame_progress = 0.11487882
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=366857916]
+y_sort_enabled = true
+position = Vector2(-1, 44)
+shape = SubResource("RectangleShape2D_pwp2m")
