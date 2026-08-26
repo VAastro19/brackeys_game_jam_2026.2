@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://dlqx4kc4mco5l"]
+
+[ext_resource type="Script" uid="uid://cwj15xaips1t3" path="res://src/ui/hud/scripts/coin_counter.gd" id="1_agyo5"]
+[ext_resource type="Texture2D" uid="uid://csdegdlw0s7t" path="res://assets/graphics/Objects/Money.png" id="2_phwke"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phwke"]
+atlas = ExtResource("2_phwke")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agyo5"]
+atlas = ExtResource("2_phwke")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccx6h"]
+atlas = ExtResource("2_phwke")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pemls"]
+atlas = ExtResource("2_phwke")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hka8"]
+atlas = ExtResource("2_phwke")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43ja5"]
+atlas = ExtResource("2_phwke")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_082uc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phwke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agyo5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccx6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pemls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hka8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43ja5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ny277"]
+font_size = 24
+font_color = Color(0.72156864, 0.65882355, 0.6039216, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.65882355)
+
+[node name="CoinCounter" type="Control" unique_id=460394161]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 150.0
+offset_bottom = 30.0
+script = ExtResource("1_agyo5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2016810778]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CoinTexture" type="Control" parent="HBoxContainer" unique_id=447293789]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HBoxContainer/CoinTexture" unique_id=1040021711]
+position = Vector2(17, 15)
+scale = Vector2(2.125, 1.875)
+sprite_frames = SubResource("SpriteFrames_082uc")
+autoplay = "default"
+frame_progress = 0.18638621
+
+[node name="CoinAmountLabel" type="Label" parent="HBoxContainer" unique_id=1959594953]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = SubResource("LabelSettings_ny277")
+vertical_alignment = 1

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://pbmgpys855ji"]
+
+[ext_resource type="Script" uid="uid://cyvhs77capma5" path="res://src/gameplay/managers/scripts/enemy_spawner.gd" id="1_q6k3m"]
+[ext_resource type="PackedScene" uid="uid://dac5jpr024ka1" path="res://src/gameplay/enemies/goblin.tscn" id="2_du2xx"]
+
+[node name="EnemySpawner" type="Marker2D" unique_id=2013912911]
+script = ExtResource("1_q6k3m")
+enemy_scene = ExtResource("2_du2xx")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=893981722]
+rect = Rect2(-69, -72, 138, 144)
+
+[node name="RespawnTimer" type="Timer" parent="." unique_id=997578588]
+one_shot = true
+autostart = true
+
+[node name="RefreshTimer" type="Timer" parent="." unique_id=882087289]
+autostart = true
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen"]
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
+[connection signal="timeout" from="RefreshTimer" to="." method="_on_refresh_timer_timeout"]

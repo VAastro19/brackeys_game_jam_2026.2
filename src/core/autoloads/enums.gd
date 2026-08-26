@@ -1,4 +1,8 @@
 # enums.gd
 extends Node
 
+enum Crop { NONE, APPLE, BREAD, CABBAGE, CARROT, DOUGH, FLOUR, EGG, ONION, PUMPKIN, PEPPER, MILK, TOMATO, WHEAT }
+
 enum State { IDLE, WALK, ATTACK1, ATTACK2, ATTACK3, HURT, DEATH }
+
+enum CoinType { REAL, FAKE }

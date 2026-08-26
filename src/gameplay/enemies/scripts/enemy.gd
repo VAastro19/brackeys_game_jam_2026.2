@@ -1,7 +1,7 @@
-# player.gd
-class_name Player extends Entity
+# enemy.gd
+class_name Enemy extends Entity
 
-@export var max_speed: float = 200.0
+@export var max_speed: float = 100.0
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_label: Label = $StateLabel
@@ -10,13 +10,7 @@ class_name Player extends Entity
 var is_dead: bool = false
 
 func _physics_process(delta: float) -> void:
-	if state_machine.current_state:
+	if state_machine.current_state and not is_dead:
 		state_machine.current_state.handle_input(delta)
 	state_label.text = Enums.State.keys()[state_machine.current_state_name].to_upper()
 	move_and_slide()
-
-func respawn() -> void:
-	pass
-
-func _on_health_component_hit(health: int, max_health: int) -> void:
-	EventBus.OnPlayerHit.emit(health, max_health)

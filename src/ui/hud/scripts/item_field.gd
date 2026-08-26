@@ -1,7 +1,7 @@
 # item_field.gd
 class_name ItemField extends TextureRect
 
-@export var item: CropPath.Crop:
+@export var item: Enums.Crop:
 	set(new_value):
 		item = new_value
 		_update_crop(new_value)
@@ -29,8 +29,8 @@ func _ready() -> void:
 	if item_count <= 0:
 		_update_item_count(0)
 
-func _update_crop(new_crop: CropPath.Crop) -> void:
-	if new_crop == CropPath.Crop.NONE:
+func _update_crop(new_crop: Enums.Crop) -> void:
+	if new_crop == Enums.Crop.NONE:
 		item_texture_rect.texture = null
 	else:
 		var item_texture: Texture2D = load(CropPath.path[new_crop])
@@ -47,7 +47,7 @@ func _load_texture(new_texture: Texture2D) -> void:
 func _update_item_count(new_value: int) -> void:
 	if new_value <= 0:
 		item_count_label.text = "0"
-		item = CropPath.Crop.NONE
+		item = Enums.Crop.NONE
 		item_count_label.visible = false
 	elif new_value >= 100:
 		item_count_label.visible = true

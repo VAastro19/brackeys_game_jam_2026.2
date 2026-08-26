@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dxk2fg62wf0cd" path="res://assets/graphics/UI/32x32-Tilesheet.png" id="1_dkobb"]
 [ext_resource type="Theme" uid="uid://j15cnci82xwc" path="res://src/resources/themes/basic_theme.tres" id="1_fl60x"]
+[ext_resource type="Script" uid="uid://cdmxfymnhbjwp" path="res://src/ui/hud/scripts/player_health_bar.gd" id="2_a1rxm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dkobb"]
 atlas = ExtResource("1_dkobb")
@@ -41,6 +42,7 @@ anchor_right = 0.416
 offset_right = -0.23999023
 offset_bottom = 15.0
 theme = ExtResource("1_fl60x")
+script = ExtResource("2_a1rxm")
 
 [node name="Decoration" type="HBoxContainer" parent="." unique_id=2125425982]
 layout_mode = 1

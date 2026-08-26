@@ -1,27 +1,25 @@
-# walk_state.gd
-extends PlayerState
+# player_walk_state.gd
+extends State
 
-func enter_state(player_node) -> void:
-	super(player_node)
+func enter_state(entity_node) -> void:
+	super(entity_node)
 
 func handle_input(_delta) -> void:
-	player.sprite.play("walk")
+	entity.sprite.play("walk")
 	
 	var move_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
 	# Smooth movement
 	if move_dir.length() > 0:
-		player.velocity = player.velocity.lerp(move_dir * player.max_speed, player.acceleration)
+		entity.velocity = entity.velocity.lerp(move_dir * entity.max_speed, entity.acceleration)
 	else:
-		player.velocity = player.velocity.lerp(Vector2.ZERO, player.braking)
+		entity.velocity = entity.velocity.lerp(Vector2.ZERO, entity.braking)
 	
 	# Flip sprite
 	if move_dir.x < 0:
-		player.sprite.flip_h = true
+		entity.sprite.flip_h = true
 	elif move_dir.x > 0:
-		player.sprite.flip_h = false
-	
-	player.velocity = move_dir * player.max_speed
+		entity.sprite.flip_h = false
 	
 	if Input.is_action_just_pressed("action"):
 		state_machine.change_state(Enums.State.ATTACK1)

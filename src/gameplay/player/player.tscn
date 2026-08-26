@@ -8,12 +8,16 @@
 [ext_resource type="Texture2D" uid="uid://bl33k8ag4j0vp" path="res://assets/graphics/Characters/Swordsman/Swordsman/Swordsman_Hurt.png" id="6_ymqj1"]
 [ext_resource type="Texture2D" uid="uid://bwxgvr0rxvig1" path="res://assets/graphics/Characters/Swordsman/Swordsman/Swordsman_Idle.png" id="7_7c3x0"]
 [ext_resource type="Texture2D" uid="uid://bktphee07ryh7" path="res://assets/graphics/Characters/Swordsman/Swordsman/Swordsman_Walk.png" id="8_trpe4"]
-[ext_resource type="Script" uid="uid://b1d7joydmdfum" path="res://src/gameplay/player/state_machine/state_machine.gd" id="9_hmrcn"]
-[ext_resource type="Script" uid="uid://nglgi4chgm21" path="res://src/gameplay/player/state_machine/idle_state.gd" id="9_rdc6l"]
-[ext_resource type="Script" uid="uid://c40rhp7psac8e" path="res://src/gameplay/player/state_machine/walk_state.gd" id="10_xdbtd"]
-[ext_resource type="Script" uid="uid://b7kluh18p7u7u" path="res://src/gameplay/player/state_machine/attack_1_state.gd" id="14_6eivh"]
-[ext_resource type="Script" uid="uid://cvkpylqcjus2y" path="res://src/gameplay/player/state_machine/attack_2_state.gd" id="15_xptrr"]
-[ext_resource type="Script" uid="uid://bpt17f2c62r6p" path="res://src/gameplay/player/state_machine/attack_3_state.gd" id="16_xptrr"]
+[ext_resource type="Script" uid="uid://cxhabudwq65k6" path="res://src/gameplay/components/scripts/health_component.gd" id="9_6eivh"]
+[ext_resource type="Script" uid="uid://b1d7joydmdfum" path="res://src/gameplay/state_machine/state_machine.gd" id="9_hmrcn"]
+[ext_resource type="Script" uid="uid://nglgi4chgm21" path="res://src/gameplay/player/states/player_idle_state.gd" id="9_rdc6l"]
+[ext_resource type="Script" uid="uid://cmvijk5os065m" path="res://src/gameplay/components/scripts/damage_color_component.gd" id="9_ymqj1"]
+[ext_resource type="Script" uid="uid://c40rhp7psac8e" path="res://src/gameplay/player/states/player_walk_state.gd" id="10_xdbtd"]
+[ext_resource type="Script" uid="uid://blwsxfdfmp7n1" path="res://src/gameplay/components/scripts/weapon_component.gd" id="10_xptrr"]
+[ext_resource type="Script" uid="uid://b7kluh18p7u7u" path="res://src/gameplay/player/states/player_attack_1_state.gd" id="14_6eivh"]
+[ext_resource type="Script" uid="uid://cvkpylqcjus2y" path="res://src/gameplay/player/states/player_attack_2_state.gd" id="15_xptrr"]
+[ext_resource type="Script" uid="uid://bpt17f2c62r6p" path="res://src/gameplay/player/states/player_attack_3_state.gd" id="16_xptrr"]
+[ext_resource type="Script" uid="uid://bmc4faw75duvv" path="res://src/gameplay/player/states/player_death_state.gd" id="17_wdigr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mdkad"]
 atlas = ExtResource("2_nor3r")
@@ -455,25 +459,53 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_082uc"]
 radius = 11.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1570054860]
+[sub_resource type="CircleShape2D" id="CircleShape2D_pwp2m"]
+radius = 63.007935
+
+[node name="Player" type="CharacterBody2D" unique_id=1570054860 groups=["Player"]]
 y_sort_enabled = true
+collision_layer = 2
+collision_mask = 25
 script = ExtResource("1_kh5p4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=967575436]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_082uc")
-animation = &"walk"
+animation = &"attack_3"
 autoplay = "idle"
+
+[node name="DamageColorComponent" type="Node" parent="AnimatedSprite2D" unique_id=1045683453]
+script = ExtResource("9_ymqj1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=951755681]
 position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_082uc")
+debug_color = Color(0.23702154, 0.63736695, 3.85046e-07, 0.41960785)
+
+[node name="WeaponRange" type="Area2D" parent="." unique_id=2016494979]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponRange" unique_id=119559064]
+shape = SubResource("CircleShape2D_pwp2m")
+debug_color = Color(0.39513406, 0.596302, 0.37633908, 0.41960785)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=836932600]
 zoom = Vector2(0.9, 0.9)
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1812940400 node_paths=PackedStringArray("state_machine")]
+script = ExtResource("9_6eivh")
+state_machine = NodePath("../StateMachine")
+max_health = 100
+
+[node name="WeaponComponent" type="Node" parent="." unique_id=1075870751 node_paths=PackedStringArray("weapon_range")]
+script = ExtResource("10_xptrr")
+damage = 5
+is_player = true
+weapon_range = NodePath("../WeaponRange")
 
 [node name="StateMachine" type="Node" parent="." unique_id=2047228650]
 script = ExtResource("9_hmrcn")
@@ -484,14 +516,20 @@ script = ExtResource("9_rdc6l")
 [node name="WalkState" type="Node" parent="StateMachine" unique_id=1397515862]
 script = ExtResource("10_xdbtd")
 
-[node name="Attack1State" type="Node" parent="StateMachine" unique_id=1544397659]
+[node name="Attack1State" type="Node" parent="StateMachine" unique_id=1544397659 node_paths=PackedStringArray("weapon_component")]
 script = ExtResource("14_6eivh")
+weapon_component = NodePath("../../WeaponComponent")
 
-[node name="Attack2State" type="Node" parent="StateMachine" unique_id=1224390820]
+[node name="Attack2State" type="Node" parent="StateMachine" unique_id=1224390820 node_paths=PackedStringArray("weapon_component")]
 script = ExtResource("15_xptrr")
+weapon_component = NodePath("../../WeaponComponent")
 
-[node name="Attack3State" type="Node" parent="StateMachine" unique_id=350741178]
+[node name="Attack3State" type="Node" parent="StateMachine" unique_id=350741178 node_paths=PackedStringArray("weapon_component")]
 script = ExtResource("16_xptrr")
+weapon_component = NodePath("../../WeaponComponent")
+
+[node name="DeathState" type="Node" parent="StateMachine" unique_id=1006215874]
+script = ExtResource("17_wdigr")
 
 [node name="StateLabel" type="Label" parent="." unique_id=667508268]
 offset_left = -31.0
@@ -500,3 +538,6 @@ offset_right = 33.0
 offset_bottom = -27.0
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="OnHit" from="HealthComponent" to="." method="_on_health_component_hit"]
+[connection signal="OnHit" from="HealthComponent" to="AnimatedSprite2D/DamageColorComponent" method="_on_health_component_on_hit"]

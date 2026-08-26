@@ -1,11 +1,12 @@
-# idle_state.gd
-extends PlayerState
+# player_idle_state.gd
+extends State
 
-func enter_state(player_node) -> void:
-	super(player_node)
+func enter_state(entity_node) -> void:
+	super(entity_node)
+	entity.velocity = Vector2.ZERO
 
 func handle_input(_delta) -> void:
-	player.sprite.play("idle")
+	entity.sprite.play("idle")
 
 	if Input.is_action_just_pressed("action"):
 		state_machine.change_state(Enums.State.ATTACK1)
