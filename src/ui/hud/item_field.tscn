@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://dmy36y22kxgo4"]
+
+[ext_resource type="Texture2D" uid="uid://dxk2fg62wf0cd" path="res://assets/graphics/UI/32x32-Tilesheet.png" id="1_nr7a0"]
+[ext_resource type="Script" uid="uid://tcuxnp67sr5t" path="res://src/ui/hud/scripts/item_field.gd" id="2_nr7a0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_082uc"]
+atlas = ExtResource("1_nr7a0")
+region = Rect2(226, 101, 28, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0ro8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_082uc"]
+font_color = Color(0.62352943, 0.53333336, 0.4509804, 1)
+outline_size = 2
+outline_color = Color(0.4392157, 0.38431373, 0.33333334, 1)
+shadow_color = Color(0, 0, 0, 0.627451)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pwp2m"]
+font_color = Color(0.7860522, 0.7049337, 0.6316481, 1)
+outline_size = 2
+outline_color = Color(0.93874246, 0.9120217, 0.8870195, 1)
+
+[node name="ItemField" type="TextureRect" unique_id=1416615611]
+custom_minimum_size = Vector2(40, 40)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_082uc")
+script = ExtResource("2_nr7a0")
+is_unlocked = true
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1807763422]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="ItemTextureRect" type="TextureRect" parent="MarginContainer" unique_id=210170671]
+layout_mode = 2
+texture = SubResource("AtlasTexture_q0ro8")
+expand_mode = 2
+
+[node name="FieldNumberLabel" type="Label" parent="." unique_id=1121968105]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+grow_horizontal = 2
+text = "0"
+label_settings = SubResource("LabelSettings_082uc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemCountLabel" type="Label" parent="." unique_id=508850733]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+label_settings = SubResource("LabelSettings_pwp2m")
+horizontal_alignment = 1
+vertical_alignment = 1

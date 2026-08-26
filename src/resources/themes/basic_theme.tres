@@ -35,6 +35,11 @@ region_rect = Rect2(102, 141, 84, 7)
 atlas = ExtResource("1_830i5")
 region = Rect2(73, 267, 11, 12)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dkobb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fl60x"]
+bg_color = Color(0, 0, 0, 1)
+
 [resource]
 Button/constants/outline_size = 4
 Button/styles/disabled = ExtResource("1_hruj4")
@@ -58,3 +63,5 @@ OptionButton/styles/disabled = ExtResource("1_hruj4")
 OptionButton/styles/hover = ExtResource("2_ayx8h")
 OptionButton/styles/normal = ExtResource("3_beka0")
 OptionButton/styles/pressed = ExtResource("4_ayx8h")
+ProgressBar/styles/background = SubResource("StyleBoxEmpty_dkobb")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_fl60x")

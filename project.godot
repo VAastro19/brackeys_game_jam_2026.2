@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="brackeys_game_jam_2026"
+config/name="thieves_of_evant"
 run/main_scene="uid://s1u2kmc7dn0d"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
@@ -24,6 +24,7 @@ buses/default_bus_layout="uid://cjnya4hema7lw"
 EventBus="*uid://c05h40583wow5"
 SceneLoader="*uid://bt6l5pi2yrr6c"
 Enums="*uid://brtbsqsr74h85"
+CropPath="*uid://b16en8foyetj2"
 
 [display]
 

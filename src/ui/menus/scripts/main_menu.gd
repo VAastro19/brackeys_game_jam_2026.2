@@ -1,6 +1,7 @@
 # main_menu.gd
 extends Control
 
+@onready var game_title: RichTextLabel = $GameTitle
 @onready var menu_box: NinePatchRect = $MenuBox
 @onready var settings_panel: NinePatchRect = $SettingsPanel
 @onready var credits_panel: NinePatchRect = $CreditsPanel
@@ -23,18 +24,21 @@ func _on_play_button_pressed() -> void:
 	SceneLoader.load_scene("uid://s1u2kmc7dn0d") # Load main game
 
 func _on_settings_button_pressed() -> void:
+	game_title.visible = false
 	menu_box.visible = false
 	settings_panel.visible = true
 	credits_panel.visible = false
 	are_you_sure_box.visible = false
 
 func _on_credits_button_pressed() -> void:
+	game_title.visible = false
 	menu_box.visible = false
 	settings_panel.visible = false
 	credits_panel.visible = true
 	are_you_sure_box.visible = false
 
 func _on_quit_button_pressed() -> void:
+	game_title.visible = false
 	menu_box.visible = false
 	settings_panel.visible = false
 	credits_panel.visible = false
@@ -45,6 +49,7 @@ func _on_yes_button_pressed() -> void:
 	get_tree().quit()
 
 func _on_no_button_pressed() -> void:
+	game_title.visible = true
 	menu_box.visible = true
 	settings_panel.visible = false
 	credits_panel.visible = false
@@ -52,6 +57,7 @@ func _on_no_button_pressed() -> void:
 
 ### --- SETTINGS PANEL BUTTONS --- ###
 func _on_back_button_pressed() -> void:
+	game_title.visible = true
 	menu_box.visible = true
 	settings_panel.visible = false
 	credits_panel.visible = false

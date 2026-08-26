@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://jypw2x0tuhrj"]
+
+[ext_resource type="PackedScene" uid="uid://dmy36y22kxgo4" path="res://src/ui/hud/item_field.tscn" id="1_ysb2e"]
+
+[node name="InventoryBar" type="Control" unique_id=1097484397]
+layout_mode = 3
+anchor_top = -0.15
+anchor_right = 0.5
+offset_top = 1.0
+offset_right = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=966591939]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=286678132]
+layout_mode = 2
+alignment = 1
+
+[node name="ItemField1" parent="MarginContainer/HBoxContainer" unique_id=1416615611 instance=ExtResource("1_ysb2e")]
+layout_mode = 2
+
+[node name="ItemField2" parent="MarginContainer/HBoxContainer" unique_id=1223108164 instance=ExtResource("1_ysb2e")]
+layout_mode = 2
+
+[node name="ItemField3" parent="MarginContainer/HBoxContainer" unique_id=1027005977 instance=ExtResource("1_ysb2e")]
+layout_mode = 2
+
+[node name="ItemField4" parent="MarginContainer/HBoxContainer" unique_id=944508265 instance=ExtResource("1_ysb2e")]
+layout_mode = 2
+is_unlocked = false
+
+[node name="ItemField5" parent="MarginContainer/HBoxContainer" unique_id=1633217732 instance=ExtResource("1_ysb2e")]
+layout_mode = 2
+is_unlocked = false
+
+[node name="ItemField6" parent="MarginContainer/HBoxContainer" unique_id=1788083222 instance=ExtResource("1_ysb2e")]
+layout_mode = 2
+is_unlocked = false
