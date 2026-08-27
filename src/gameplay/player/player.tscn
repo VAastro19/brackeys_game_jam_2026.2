@@ -8,16 +8,18 @@
 [ext_resource type="Texture2D" uid="uid://bl33k8ag4j0vp" path="res://assets/graphics/Characters/Swordsman/Swordsman/Swordsman_Hurt.png" id="6_ymqj1"]
 [ext_resource type="Texture2D" uid="uid://bwxgvr0rxvig1" path="res://assets/graphics/Characters/Swordsman/Swordsman/Swordsman_Idle.png" id="7_7c3x0"]
 [ext_resource type="Texture2D" uid="uid://bktphee07ryh7" path="res://assets/graphics/Characters/Swordsman/Swordsman/Swordsman_Walk.png" id="8_trpe4"]
-[ext_resource type="Script" uid="uid://cxhabudwq65k6" path="res://src/gameplay/components/scripts/health_component.gd" id="9_6eivh"]
 [ext_resource type="Script" uid="uid://b1d7joydmdfum" path="res://src/gameplay/state_machine/state_machine.gd" id="9_hmrcn"]
 [ext_resource type="Script" uid="uid://nglgi4chgm21" path="res://src/gameplay/player/states/player_idle_state.gd" id="9_rdc6l"]
 [ext_resource type="Script" uid="uid://cmvijk5os065m" path="res://src/gameplay/components/scripts/damage_color_component.gd" id="9_ymqj1"]
+[ext_resource type="Script" uid="uid://dwvc4h7ouea5e" path="res://src/gameplay/components/scripts/inventory_component.gd" id="10_trpe4"]
 [ext_resource type="Script" uid="uid://c40rhp7psac8e" path="res://src/gameplay/player/states/player_walk_state.gd" id="10_xdbtd"]
 [ext_resource type="Script" uid="uid://blwsxfdfmp7n1" path="res://src/gameplay/components/scripts/weapon_component.gd" id="10_xptrr"]
+[ext_resource type="PackedScene" uid="uid://h0p562d7o7f" path="res://src/gameplay/components/health_component.tscn" id="11_trpe4"]
 [ext_resource type="Script" uid="uid://b7kluh18p7u7u" path="res://src/gameplay/player/states/player_attack_1_state.gd" id="14_6eivh"]
 [ext_resource type="Script" uid="uid://cvkpylqcjus2y" path="res://src/gameplay/player/states/player_attack_2_state.gd" id="15_xptrr"]
 [ext_resource type="Script" uid="uid://bpt17f2c62r6p" path="res://src/gameplay/player/states/player_attack_3_state.gd" id="16_xptrr"]
 [ext_resource type="Script" uid="uid://bmc4faw75duvv" path="res://src/gameplay/player/states/player_death_state.gd" id="17_wdigr"]
+[ext_resource type="Script" uid="uid://b5nr66yqq576h" path="res://src/gameplay/player/scripts/player_audio.gd" id="19_7c3x0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mdkad"]
 atlas = ExtResource("2_nor3r")
@@ -462,10 +464,105 @@ radius = 11.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_pwp2m"]
 radius = 63.007935
 
+[sub_resource type="LabelSettings" id="LabelSettings_082uc"]
+font_color = Color(0.72156864, 0.65882355, 0.6039216, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.7647059)
+
+[sub_resource type="Animation" id="Animation_ymqj1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InventoryFullLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InventoryFullLabel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-52, -41)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("InventoryFullLabel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_7c3x0"]
+resource_name = "inventory_full"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InventoryFullLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InventoryFullLabel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-52, -41), Vector2(-52, -86)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("InventoryFullLabel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_trpe4"]
+_data = {
+&"RESET": SubResource("Animation_ymqj1"),
+&"inventory_full": SubResource("Animation_7c3x0")
+}
+
 [node name="Player" type="CharacterBody2D" unique_id=1570054860 groups=["Player"]]
 y_sort_enabled = true
 collision_layer = 2
 collision_mask = 25
+slide_on_ceiling = false
+floor_block_on_wall = false
+platform_on_leave = 2
+platform_floor_layers = 4294901760
 script = ExtResource("1_kh5p4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=967575436]
@@ -491,15 +588,17 @@ shape = SubResource("CircleShape2D_pwp2m")
 debug_color = Color(0.39513406, 0.596302, 0.37633908, 0.41960785)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=836932600]
-zoom = Vector2(0.9, 0.9)
+zoom = Vector2(0.8, 0.8)
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
-[node name="HealthComponent" type="Node" parent="." unique_id=1812940400 node_paths=PackedStringArray("state_machine")]
-script = ExtResource("9_6eivh")
+[node name="InventoryComponent" type="Node" parent="." unique_id=983754851]
+script = ExtResource("10_trpe4")
+
+[node name="HealthComponent" parent="." unique_id=14515858 node_paths=PackedStringArray("state_machine") instance=ExtResource("11_trpe4")]
 state_machine = NodePath("../StateMachine")
-max_health = 100
+allow_regeneration = true
 
 [node name="WeaponComponent" type="Node" parent="." unique_id=1075870751 node_paths=PackedStringArray("weapon_range")]
 script = ExtResource("10_xptrr")
@@ -538,6 +637,30 @@ offset_right = 33.0
 offset_bottom = -27.0
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="InventoryFullLabel" type="Label" parent="." unique_id=469080763]
+z_index = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_top = -41.0
+offset_right = 52.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Inventory Full"
+label_settings = SubResource("LabelSettings_082uc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=634449719]
+libraries/ = SubResource("AnimationLibrary_trpe4")
+
+[node name="PlayerAudio" type="AudioStreamPlayer" parent="." unique_id=1459384341]
+script = ExtResource("19_7c3x0")
 
 [connection signal="OnHit" from="HealthComponent" to="." method="_on_health_component_hit"]
 [connection signal="OnHit" from="HealthComponent" to="AnimatedSprite2D/DamageColorComponent" method="_on_health_component_on_hit"]

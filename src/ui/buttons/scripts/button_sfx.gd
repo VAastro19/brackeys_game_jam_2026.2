@@ -3,8 +3,8 @@ extends AudioStreamPlayer
 
 @onready var button: BaseButton = get_parent()
 
-@onready var hover_sound: AudioStream = preload("res://assets/audio/hover.ogg")
-@onready var click_sound: AudioStream = preload("res://assets/audio/click.ogg")
+@onready var hover_sound: AudioStream = preload("uid://bt0t1anxylvyp")
+@onready var click_sound: AudioStream = preload("uid://1jog5p4gl1uq")
 
 func _ready() -> void:
 	button.mouse_entered.connect(_play_hover_sound)

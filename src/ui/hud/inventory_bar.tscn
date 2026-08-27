@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://jypw2x0tuhrj"]
 
+[ext_resource type="Script" uid="uid://dc1qm5l14o3wh" path="res://src/ui/hud/scripts/inventory_bar.gd" id="1_hl6vx"]
 [ext_resource type="PackedScene" uid="uid://dmy36y22kxgo4" path="res://src/ui/hud/item_field.tscn" id="1_ysb2e"]
 
 [node name="InventoryBar" type="Control" unique_id=1097484397]
@@ -8,6 +9,7 @@ anchor_top = -0.15
 anchor_right = 0.5
 offset_top = 1.0
 offset_right = 1.0
+script = ExtResource("1_hl6vx")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=966591939]
 layout_mode = 1
@@ -36,7 +38,6 @@ layout_mode = 2
 
 [node name="ItemField4" parent="MarginContainer/HBoxContainer" unique_id=944508265 instance=ExtResource("1_ysb2e")]
 layout_mode = 2
-is_unlocked = false
 
 [node name="ItemField5" parent="MarginContainer/HBoxContainer" unique_id=1633217732 instance=ExtResource("1_ysb2e")]
 layout_mode = 2

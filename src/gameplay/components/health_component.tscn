@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://h0p562d7o7f"]
+
+[ext_resource type="Script" uid="uid://cxhabudwq65k6" path="res://src/gameplay/components/scripts/health_component.gd" id="1_m1g4o"]
+
+[node name="HealthComponent" type="Node" unique_id=14515858]
+script = ExtResource("1_m1g4o")
+max_health = 100
+
+[node name="RegenerateTimer" type="Timer" parent="." unique_id=257704250]
+autostart = true
+
+[node name="RegenCooldown" type="Timer" parent="." unique_id=1559114913]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="RegenerateTimer" to="." method="regenerate"]
+[connection signal="timeout" from="RegenCooldown" to="." method="_on_regen_cooldown"]

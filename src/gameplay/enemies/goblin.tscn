@@ -13,11 +13,11 @@
 [ext_resource type="Script" uid="uid://iekrbutw6tf4" path="res://src/gameplay/enemies/scripts/enemy_health_bar.gd" id="8_dr785"]
 [ext_resource type="Theme" uid="uid://j15cnci82xwc" path="res://src/resources/themes/basic_theme.tres" id="9_13kq5"]
 [ext_resource type="Script" uid="uid://gmvcklat75hq" path="res://src/gameplay/enemies/states/enemy_idle_state.gd" id="9_bensl"]
-[ext_resource type="Script" uid="uid://cxhabudwq65k6" path="res://src/gameplay/components/scripts/health_component.gd" id="10_13kq5"]
 [ext_resource type="Script" uid="uid://c7ickolfpos1i" path="res://src/gameplay/enemies/states/enemy_walk_state.gd" id="10_jk56i"]
 [ext_resource type="Script" uid="uid://guodtaki0f44" path="res://src/gameplay/enemies/states/enemy_attack_1_state.gd" id="11_4j8y3"]
 [ext_resource type="Script" uid="uid://blwsxfdfmp7n1" path="res://src/gameplay/components/scripts/weapon_component.gd" id="11_nxcaj"]
 [ext_resource type="Script" uid="uid://cav1tycdxe6pt" path="res://src/gameplay/enemies/states/enemy_attack_2_state.gd" id="12_6v60g"]
+[ext_resource type="PackedScene" uid="uid://h0p562d7o7f" path="res://src/gameplay/components/health_component.tscn" id="12_a272h"]
 [ext_resource type="Script" uid="uid://boettqrebm4nk" path="res://src/gameplay/components/scripts/knockback_component.gd" id="14_a272h"]
 [ext_resource type="Script" uid="uid://dgpu3iul21jyf" path="res://src/gameplay/enemies/states/enemy_death_state.gd" id="17_hyfhi"]
 
@@ -299,7 +299,7 @@ radius = 9.055386
 radius = 224.0201
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q0ro8"]
-radius = 51.009804
+radius = 45.01111
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_baoa8"]
 atlas = ExtResource("8_60rwo")
@@ -316,6 +316,10 @@ region = Rect2(279, 176, 2, 4)
 [node name="Goblin" type="CharacterBody2D" unique_id=1477561400]
 collision_layer = 8
 collision_mask = 15
+slide_on_ceiling = false
+floor_block_on_wall = false
+platform_on_leave = 2
+platform_floor_layers = 4294901760
 script = ExtResource("1_jemp4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=379788038]
@@ -403,8 +407,7 @@ value = 27.65
 fill_mode = 1
 show_percentage = false
 
-[node name="HealthComponent" type="Node" parent="." unique_id=236455502 node_paths=PackedStringArray("state_machine")]
-script = ExtResource("10_13kq5")
+[node name="HealthComponent" parent="." unique_id=14515858 node_paths=PackedStringArray("state_machine") instance=ExtResource("12_a272h")]
 state_machine = NodePath("../StateMachine")
 max_health = 50
 

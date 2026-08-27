@@ -14,3 +14,8 @@ func _physics_process(delta: float) -> void:
 		state_machine.current_state.handle_input(delta)
 	state_label.text = Enums.State.keys()[state_machine.current_state_name].to_upper()
 	move_and_slide()
+
+func on_death() -> void:
+	var loot_coins: int = randi_range(5, 15)
+	EventBus.OnCoinGain.emit(loot_coins, Enums.CoinType.FAKE)
+	EconomyManager.fake_coins += loot_coins
