@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cr53ni6guktbu"]
+
+[ext_resource type="Script" uid="uid://c1yo7i17m2aet" path="res://src/gameplay/managers/scripts/player_spawner.gd" id="1_tiqt1"]
+
+[node name="PlayerSpawner" type="Marker2D" unique_id=1633711051]
+script = ExtResource("1_tiqt1")

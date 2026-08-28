@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cjo1dtt3fpps1"]
 
 [ext_resource type="Script" uid="uid://bsu5gd61x2nsh" path="res://src/gameplay/player/scripts/player.gd" id="1_kh5p4"]
+[ext_resource type="Shader" uid="uid://idsir544qqk7" path="res://src/resources/shaders/global_shader.gdshader" id="1_mdkad"]
 [ext_resource type="Texture2D" uid="uid://cvqx6r83nactd" path="res://assets/graphics/Characters/Swordsman/Swordsman/Swordsman_Attack01.png" id="2_nor3r"]
 [ext_resource type="Texture2D" uid="uid://bp44jirhjoxk7" path="res://assets/graphics/Characters/Swordsman/Swordsman/Swordsman_Attack02.png" id="3_6eivh"]
 [ext_resource type="Texture2D" uid="uid://dv2yeb83unpmu" path="res://assets/graphics/Characters/Swordsman/Swordsman/Swordsman_Attack3.png" id="4_xptrr"]
@@ -20,6 +21,10 @@
 [ext_resource type="Script" uid="uid://bpt17f2c62r6p" path="res://src/gameplay/player/states/player_attack_3_state.gd" id="16_xptrr"]
 [ext_resource type="Script" uid="uid://bmc4faw75duvv" path="res://src/gameplay/player/states/player_death_state.gd" id="17_wdigr"]
 [ext_resource type="Script" uid="uid://b5nr66yqq576h" path="res://src/gameplay/player/scripts/player_audio.gd" id="19_7c3x0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ch2no"]
+shader = ExtResource("1_mdkad")
+shader_parameter/saturation = 0.7
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mdkad"]
 atlas = ExtResource("2_nor3r")
@@ -566,6 +571,7 @@ platform_floor_layers = 4294901760
 script = ExtResource("1_kh5p4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=967575436]
+material = SubResource("ShaderMaterial_ch2no")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_082uc")
 animation = &"attack_3"

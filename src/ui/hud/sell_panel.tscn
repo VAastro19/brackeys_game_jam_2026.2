@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://cijpbuitc6mva"]
+
+[ext_resource type="Texture2D" uid="uid://dxk2fg62wf0cd" path="res://assets/graphics/UI/32x32-Tilesheet.png" id="1_dml52"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1p7la"]
+atlas = ExtResource("1_dml52")
+region = Rect2(191, 191, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thqpu"]
+atlas = ExtResource("1_dml52")
+region = Rect2(191, 191, 33, 33)
+
+[node name="SellPanel" type="Control" unique_id=1488444719]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="NinePatchRect" parent="." unique_id=1979590401]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_dml52")
+region_rect = Rect2(96, 0, 96, 96)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Background" unique_id=1026012839]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TopLeftDetail" type="TextureRect" parent="Background/MarginContainer" unique_id=1542890626]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_1p7la")
+expand_mode = 2
+
+[node name="TopRightDetail" type="TextureRect" parent="Background/MarginContainer" unique_id=966513148]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_thqpu")
+expand_mode = 3
+flip_h = true
+
+[node name="BottomRightDetail" type="TextureRect" parent="Background/MarginContainer" unique_id=1502765222]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_thqpu")
+expand_mode = 3
+flip_h = true
+flip_v = true
+
+[node name="BottomLeftDetail" type="TextureRect" parent="Background/MarginContainer" unique_id=1357050731]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_thqpu")
+expand_mode = 3
+flip_v = true

@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cbpixlarox0tc"]
+
+[ext_resource type="PackedScene" uid="uid://w3wsh1qrdf5y" path="res://src/gameplay/npc/npc.tscn" id="1_d80wt"]
+[ext_resource type="Shader" uid="uid://idsir544qqk7" path="res://src/resources/shaders/global_shader.gdshader" id="2_0lm3v"]
+[ext_resource type="Texture2D" uid="uid://lpb62cxuprww" path="res://assets/graphics/NPCs/Josh/Idle.png" id="3_llfaa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_082uc"]
+shader = ExtResource("2_0lm3v")
+shader_parameter/saturation = 0.7
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_458e7"]
+atlas = ExtResource("3_llfaa")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1t8yk"]
+atlas = ExtResource("3_llfaa")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrgdy"]
+atlas = ExtResource("3_llfaa")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n47vb"]
+atlas = ExtResource("3_llfaa")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pwp2m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_458e7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1t8yk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrgdy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n47vb")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Merchant1" unique_id=2146350761 instance=ExtResource("1_d80wt")]
+npc_type = 1
+is_merchant = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0" unique_id=669903951]
+material = SubResource("ShaderMaterial_082uc")
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_pwp2m")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.08327154

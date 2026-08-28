@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dac5jpr024ka1"]
 
 [ext_resource type="Script" uid="uid://ddc7s0nepye5c" path="res://src/gameplay/enemies/scripts/enemy.gd" id="1_jemp4"]
+[ext_resource type="Shader" uid="uid://idsir544qqk7" path="res://src/resources/shaders/global_shader.gdshader" id="2_1smki"]
 [ext_resource type="Texture2D" uid="uid://b30jc17wf0tsa" path="res://assets/graphics/Characters/Orc/Orc/Orc_Attack01.png" id="2_kaccs"]
 [ext_resource type="Texture2D" uid="uid://cxe5ww56xhqt2" path="res://assets/graphics/Characters/Orc/Orc/Orc_Attack02.png" id="3_01qao"]
 [ext_resource type="Texture2D" uid="uid://bvm6r6h5wjx4w" path="res://assets/graphics/Characters/Orc/Orc/Orc_Death.png" id="4_bensl"]
@@ -20,6 +21,10 @@
 [ext_resource type="PackedScene" uid="uid://h0p562d7o7f" path="res://src/gameplay/components/health_component.tscn" id="12_a272h"]
 [ext_resource type="Script" uid="uid://boettqrebm4nk" path="res://src/gameplay/components/scripts/knockback_component.gd" id="14_a272h"]
 [ext_resource type="Script" uid="uid://dgpu3iul21jyf" path="res://src/gameplay/enemies/states/enemy_death_state.gd" id="17_hyfhi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mdkad"]
+shader = ExtResource("2_1smki")
+shader_parameter/saturation = 0.7
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rk6gf"]
 atlas = ExtResource("2_kaccs")
@@ -323,6 +328,7 @@ platform_floor_layers = 4294901760
 script = ExtResource("1_jemp4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=379788038]
+material = SubResource("ShaderMaterial_mdkad")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_082uc")
 animation = &"death"
@@ -426,8 +432,9 @@ script = ExtResource("8_01qao")
 [node name="IdleState" type="Node" parent="StateMachine" unique_id=1179847829]
 script = ExtResource("9_bensl")
 
-[node name="WalkState" type="Node" parent="StateMachine" unique_id=1489303213]
+[node name="WalkState" type="Node" parent="StateMachine" unique_id=1489303213 node_paths=PackedStringArray("detection_zone")]
 script = ExtResource("10_jk56i")
+detection_zone = NodePath("../../DetectionZone")
 
 [node name="Attack1State" type="Node" parent="StateMachine" unique_id=405531495 node_paths=PackedStringArray("weapon_component")]
 script = ExtResource("11_4j8y3")

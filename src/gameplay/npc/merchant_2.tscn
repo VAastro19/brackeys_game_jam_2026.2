@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cvshgl6t7the1"]
+
+[ext_resource type="PackedScene" uid="uid://w3wsh1qrdf5y" path="res://src/gameplay/npc/npc.tscn" id="1_ihfbg"]
+[ext_resource type="Shader" uid="uid://idsir544qqk7" path="res://src/resources/shaders/global_shader.gdshader" id="2_stjsr"]
+[ext_resource type="Texture2D" uid="uid://cadu5txchcsb4" path="res://assets/graphics/NPCs/Lyria/Idle.png" id="3_4634h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_082uc"]
+shader = ExtResource("2_stjsr")
+shader_parameter/saturation = 0.7
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyxa4"]
+atlas = ExtResource("3_4634h")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqn8g"]
+atlas = ExtResource("3_4634h")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8st51"]
+atlas = ExtResource("3_4634h")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aul6f"]
+atlas = ExtResource("3_4634h")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pwp2m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyxa4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqn8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8st51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aul6f")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Merchant2" unique_id=2146350761 instance=ExtResource("1_ihfbg")]
+npc_type = 2
+is_merchant = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0" unique_id=67355440]
+material = SubResource("ShaderMaterial_082uc")
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_pwp2m")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.15717034

@@ -1,12 +1,17 @@
 # enemy_walk_state.gd
 extends State
 
+@export var detection_zone: Area2D
+
+@onready var player = get_tree().get_first_node_in_group("Player")
+
 func enter_state(entity_node) -> void:
 	super(entity_node)
 	entity.sprite.play("walk")
+	if player not in detection_zone.get_overlapping_bodies():
+		state_machine.change_state(Enums.State.IDLE)
 
 func handle_input(_delta) -> void:
-	var player: Player = get_tree().get_first_node_in_group("Player")
 	if not player:
 		state_machine.change_state(Enums.State.IDLE)
 		return

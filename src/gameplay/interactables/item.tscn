@@ -2,6 +2,11 @@
 
 [ext_resource type="Script" uid="uid://btcueo6k1yrdk" path="res://src/gameplay/interactables/scripts/item.gd" id="1_p1s46"]
 [ext_resource type="AudioStream" uid="uid://bbno3nm4pcvyi" path="res://assets/audio/SFX/GameSFX/pickup_crop.wav" id="2_84dow"]
+[ext_resource type="Shader" uid="uid://idsir544qqk7" path="res://src/resources/shaders/global_shader.gdshader" id="2_ik772"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bhwgl"]
+shader = ExtResource("2_ik772")
+shader_parameter/saturation = 0.7
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pwp2m"]
 radius = 25.0
@@ -11,6 +16,7 @@ collision_mask = 6
 script = ExtResource("1_p1s46")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=862951063]
+material = SubResource("ShaderMaterial_bhwgl")
 scale = Vector2(1.5, 1.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=792834671]

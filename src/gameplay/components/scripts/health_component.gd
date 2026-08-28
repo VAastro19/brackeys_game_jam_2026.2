@@ -11,13 +11,16 @@ class_name HealthComponent extends Node
 signal OnHit(health: int, max_health: int)
 
 var health: int
+var entity: Entity
 
 func _ready() -> void:
 	health = max_health
+	entity = get_parent()
 
 func take_damage(damage: int) -> void:
-	health -= maxi(0, damage)
-	OnHit.emit(health, max_health)
+	if not entity.is_dead:
+		health -= maxi(0, damage)
+		OnHit.emit(health, max_health)
 	
 	if not regen_cooldown_timer.is_stopped():
 		regen_cooldown_timer.start()
@@ -27,7 +30,7 @@ func take_damage(damage: int) -> void:
 	
 	if health <= 0:
 		state_machine.change_state(Enums.State.DEATH)
-		get_parent().on_death()
+		entity.on_death()
 
 func regenerate() -> void:
 	if allow_regeneration:

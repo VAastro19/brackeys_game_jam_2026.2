@@ -16,7 +16,6 @@ func _ready() -> void:
 	respawn_timer.wait_time = respawn_time
 
 func spawn_item() -> void:
-	print("Spawn item")
 	item = item_scene.instantiate()
 	item.global_position = global_position
 	item.item_type = type
@@ -24,11 +23,9 @@ func spawn_item() -> void:
 	can_spawn = false
 
 func _on_respawn_timer_timeout() -> void:
-	print("timer finished")
 	can_spawn = true
 
 func _on_visible_on_screen() -> void:
-	print("screen entered")
 	if can_spawn and not item:
 		spawn_item()
 

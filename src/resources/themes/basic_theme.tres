@@ -43,6 +43,30 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_detail = 4
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jedq1"]
+atlas = ExtResource("1_830i5")
+region = Rect2(72, 266, 13, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylkp7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sq2g"]
+atlas = ExtResource("1_830i5")
+region = Rect2(72, 298, 13, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ny0h2"]
+atlas = ExtResource("1_830i5")
+region = Rect2(40, 265, 13, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7h0b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c48ni"]
+atlas = ExtResource("1_830i5")
+region = Rect2(40, 297, 13, 14)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eexnw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xkm4a"]
+
 [resource]
 Button/constants/outline_size = 4
 Button/styles/disabled = ExtResource("1_hruj4")
@@ -68,3 +92,14 @@ OptionButton/styles/normal = ExtResource("3_beka0")
 OptionButton/styles/pressed = ExtResource("4_ayx8h")
 ProgressBar/styles/background = SubResource("StyleBoxEmpty_dkobb")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_fl60x")
+SpinBox/constants/buttons_vertical_separation = 12
+SpinBox/icons/down = SubResource("AtlasTexture_jedq1")
+SpinBox/icons/down_disabled = SubResource("AtlasTexture_ylkp7")
+SpinBox/icons/down_hover = SubResource("AtlasTexture_jedq1")
+SpinBox/icons/down_pressed = SubResource("AtlasTexture_6sq2g")
+SpinBox/icons/up = SubResource("AtlasTexture_ny0h2")
+SpinBox/icons/up_disabled = SubResource("AtlasTexture_d7h0b")
+SpinBox/icons/up_hover = SubResource("AtlasTexture_ny0h2")
+SpinBox/icons/up_pressed = SubResource("AtlasTexture_c48ni")
+SpinBox/styles/down_background_pressed = SubResource("StyleBoxEmpty_eexnw")
+SpinBox/styles/up_background_pressed = SubResource("StyleBoxEmpty_xkm4a")

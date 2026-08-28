@@ -47,8 +47,11 @@ func _item_far() -> void:
 	can_collect = false
 	nearby_item = null
 
-func respawn() -> void:
-	pass
+func on_death() -> void:
+	EconomyManager.real_coins = roundi(EconomyManager.real_coins * 0.8)
+	EconomyManager.fake_coins = roundi(EconomyManager.fake_coins * 0.8)
+	EventBus.OnCoinUpdate.emit(EconomyManager.real_coins, Enums.CoinType.REAL)
+	EventBus.OnCoinUpdate.emit(EconomyManager.fake_coins, Enums.CoinType.FAKE)
 
 func _on_health_component_hit(health: int, max_health: int) -> void:
 	EventBus.OnPlayerHit.emit(health, max_health)

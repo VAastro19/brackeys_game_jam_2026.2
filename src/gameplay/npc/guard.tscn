@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://dcavuk8tg8d20"]
+
+[ext_resource type="PackedScene" uid="uid://w3wsh1qrdf5y" path="res://src/gameplay/npc/npc.tscn" id="1_eymv0"]
+[ext_resource type="Shader" uid="uid://idsir544qqk7" path="res://src/resources/shaders/global_shader.gdshader" id="2_bj14q"]
+[ext_resource type="Texture2D" uid="uid://cqhfmq8i18jif" path="res://assets/graphics/NPCs/Knight Templar/Knight Templar/Knight Templar_Idle.png" id="3_eyxs8"]
+[ext_resource type="Texture2D" uid="uid://cnqcak7wegvv2" path="res://assets/graphics/NPCs/Knight Templar/Knight Templar/Knight Templar_Walk02.png" id="4_pef10"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pwp2m"]
+shader = ExtResource("2_bj14q")
+shader_parameter/saturation = 0.7
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pef10"]
+atlas = ExtResource("3_eyxs8")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1lhs"]
+atlas = ExtResource("3_eyxs8")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qatbp"]
+atlas = ExtResource("3_eyxs8")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwctn"]
+atlas = ExtResource("3_eyxs8")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lxom"]
+atlas = ExtResource("3_eyxs8")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsvg1"]
+atlas = ExtResource("3_eyxs8")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5vw8"]
+atlas = ExtResource("4_pef10")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jeirl"]
+atlas = ExtResource("4_pef10")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23qjp"]
+atlas = ExtResource("4_pef10")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6i7ei"]
+atlas = ExtResource("4_pef10")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elmuy"]
+atlas = ExtResource("4_pef10")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxq6g"]
+atlas = ExtResource("4_pef10")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hx6d3"]
+atlas = ExtResource("4_pef10")
+region = Rect2(600, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mm3b"]
+atlas = ExtResource("4_pef10")
+region = Rect2(700, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_082uc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pef10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1lhs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qatbp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwctn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lxom")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsvg1")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5vw8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jeirl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23qjp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6i7ei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elmuy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxq6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hx6d3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mm3b")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[node name="Guard" unique_id=2146350761 instance=ExtResource("1_eymv0")]
+npc_type = 5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0" unique_id=1015347588]
+material = SubResource("ShaderMaterial_pwp2m")
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_082uc")
+animation = &"walk"
+autoplay = "idle"
+frame_progress = 0.98247766

@@ -15,4 +15,4 @@ func _on_animation_finished() -> void:
 	await tween.finished
 	
 	entity.sprite.animation_finished.disconnect(_on_animation_finished)
-	entity.respawn()
+	EventBus.OnPlayerDead.emit()

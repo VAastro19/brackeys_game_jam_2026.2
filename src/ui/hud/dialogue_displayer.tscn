@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://cl7maiqrtkix5"]
+
+[ext_resource type="Script" uid="uid://c2llvsdj868uw" path="res://src/ui/hud/scripts/dialogue_displayer.gd" id="1_3bonw"]
+[ext_resource type="Texture2D" uid="uid://dxk2fg62wf0cd" path="res://assets/graphics/UI/32x32-Tilesheet.png" id="1_de1tv"]
+[ext_resource type="Script" uid="uid://ou52bosemgrb" path="res://src/ui/hud/scripts/dialogue_base.gd" id="3_yhtwy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bonw"]
+atlas = ExtResource("1_de1tv")
+region = Rect2(191, 191, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhtwy"]
+atlas = ExtResource("1_de1tv")
+region = Rect2(191, 191, 33, 33)
+
+[sub_resource type="LabelSettings" id="LabelSettings_082uc"]
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+outline_size = 2
+outline_color = Color(0.90813357, 0.88148147, 0.8584328, 1)
+
+[node name="DialogueDisplayer" type="Control" unique_id=266166712]
+layout_mode = 3
+anchor_right = 0.30800003
+anchor_bottom = 0.24200001
+offset_right = -0.120025635
+offset_bottom = -0.12000275
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3bonw")
+
+[node name="Background" type="NinePatchRect" parent="." unique_id=1898653141]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_de1tv")
+region_rect = Rect2(96, 0, 96, 96)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Background" unique_id=316998156]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TopLeftDetail" type="TextureRect" parent="Background/MarginContainer" unique_id=5639735]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_3bonw")
+expand_mode = 2
+
+[node name="TopRightDetail" type="TextureRect" parent="Background/MarginContainer" unique_id=48297647]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_yhtwy")
+expand_mode = 3
+flip_h = true
+
+[node name="BottomRightDetail" type="TextureRect" parent="Background/MarginContainer" unique_id=1215683415]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_yhtwy")
+expand_mode = 3
+flip_h = true
+flip_v = true
+
+[node name="BottomLeftDetail" type="TextureRect" parent="Background/MarginContainer" unique_id=1266182967]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_yhtwy")
+expand_mode = 3
+flip_v = true
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1550447594]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=2134401152]
+layout_mode = 2
+size_flags_vertical = 1
+label_settings = SubResource("LabelSettings_082uc")
+autowrap_mode = 3
+
+[node name="DialogueBase" type="Node" parent="." unique_id=1383000885]
+script = ExtResource("3_yhtwy")
+
+[node name="LetterTimer" type="Timer" parent="." unique_id=824917498]
+wait_time = 0.05
+one_shot = true
+
+[node name="LetterSound" type="AudioStreamPlayer" parent="." unique_id=1789796938]

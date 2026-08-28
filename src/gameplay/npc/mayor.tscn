@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://v08av6l1xbxc"]
+
+[ext_resource type="PackedScene" uid="uid://w3wsh1qrdf5y" path="res://src/gameplay/npc/npc.tscn" id="1_i602j"]
+[ext_resource type="Shader" uid="uid://idsir544qqk7" path="res://src/resources/shaders/global_shader.gdshader" id="2_gv4jg"]
+[ext_resource type="Texture2D" uid="uid://c4dhbscnal11e" path="res://assets/graphics/NPCs/Priest/Priest/Priest_Idle.png" id="3_tc2mu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pwp2m"]
+shader = ExtResource("2_gv4jg")
+shader_parameter/saturation = 0.7
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbcrm"]
+atlas = ExtResource("3_tc2mu")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldbr8"]
+atlas = ExtResource("3_tc2mu")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snaok"]
+atlas = ExtResource("3_tc2mu")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bb5q"]
+atlas = ExtResource("3_tc2mu")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b23r7"]
+atlas = ExtResource("3_tc2mu")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0c708"]
+atlas = ExtResource("3_tc2mu")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_082uc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbcrm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldbr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snaok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bb5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b23r7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0c708")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[node name="Mayor" unique_id=2146350761 instance=ExtResource("1_i602j")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0" unique_id=93149029]
+material = SubResource("ShaderMaterial_pwp2m")
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_082uc")
+animation = &"idle"
+autoplay = "idle"

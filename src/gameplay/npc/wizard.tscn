@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://bq2knl8g3ef13"]
+
+[ext_resource type="PackedScene" uid="uid://w3wsh1qrdf5y" path="res://src/gameplay/npc/npc.tscn" id="1_uwyv7"]
+[ext_resource type="Shader" uid="uid://idsir544qqk7" path="res://src/resources/shaders/global_shader.gdshader" id="2_tjdi6"]
+[ext_resource type="Texture2D" uid="uid://cv1ffdhh1ycmk" path="res://assets/graphics/NPCs/Wizard/Wizard/Wizard_Idle.png" id="3_p0bba"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_082uc"]
+shader = ExtResource("2_tjdi6")
+shader_parameter/saturation = 0.7
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crku3"]
+atlas = ExtResource("3_p0bba")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eibuj"]
+atlas = ExtResource("3_p0bba")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qeu7w"]
+atlas = ExtResource("3_p0bba")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alcjv"]
+atlas = ExtResource("3_p0bba")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_reldq"]
+atlas = ExtResource("3_p0bba")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oh815"]
+atlas = ExtResource("3_p0bba")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pwp2m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crku3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eibuj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qeu7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alcjv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_reldq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oh815")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[node name="Wizard" unique_id=2146350761 instance=ExtResource("1_uwyv7")]
+npc_type = 4
+is_merchant = true
+is_seller = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0" unique_id=1585985883]
+material = SubResource("ShaderMaterial_082uc")
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_pwp2m")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.90004575
