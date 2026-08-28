@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://6x5yultxc28" path="res://src/ui/menus/credits_panel.tscn" id="4_jmap8"]
 [ext_resource type="PackedScene" uid="uid://ctebcabyvcq82" path="res://src/ui/menus/are_you_sure_box.tscn" id="4_vs67m"]
 [ext_resource type="PackedScene" uid="uid://c5tmbiwoeg8xx" path="res://src/ui/menus/corner_details.tscn" id="6_y3puo"]
+[ext_resource type="AudioStream" uid="uid://cw4k8ij6jt05r" path="res://assets/audio/Music/darren_hirst-gregorian-100-bpm-a-minor-399638.mp3" id="7_csvuu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_082uc"]
 bg_color = Color(0, 0, 0, 1)
@@ -113,3 +114,10 @@ box_text = "Are you sure you want to quit?"
 
 [node name="CornerDetails" parent="." unique_id=1525519473 instance=ExtResource("6_y3puo")]
 layout_mode = 1
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=2135708412]
+stream = ExtResource("7_csvuu")
+volume_db = -10.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true

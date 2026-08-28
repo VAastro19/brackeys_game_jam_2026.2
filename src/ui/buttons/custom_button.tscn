@@ -12,5 +12,6 @@ text = "Button"
 script = ExtResource("2_pnlrx")
 
 [node name="ButtonSFX" type="AudioStreamPlayer" parent="." unique_id=1071180284]
+volume_db = -10.0
 bus = &"SFX"
 script = ExtResource("2_8ygs4")

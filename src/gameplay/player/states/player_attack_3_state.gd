@@ -10,6 +10,7 @@ func enter_state(entity_node) -> void:
 
 	entity.sprite.animation_finished.connect(_on_animation_finished)
 	entity.sprite.play("attack_3")
+	EventBus.OnPlayerAttack3.emit()
 
 func handle_input(_delta) -> void:
 	if entity.sprite.is_playing():

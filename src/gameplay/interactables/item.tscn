@@ -25,4 +25,5 @@ debug_color = Color(0.7834508, 0.13466042, 0.9907556, 0.41960785)
 
 [node name="CollectedSound" type="AudioStreamPlayer" parent="." unique_id=1158857642]
 stream = ExtResource("2_84dow")
+volume_db = -15.0
 bus = &"SFX"

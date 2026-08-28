@@ -21,6 +21,10 @@
 [ext_resource type="Script" uid="uid://bpt17f2c62r6p" path="res://src/gameplay/player/states/player_attack_3_state.gd" id="16_xptrr"]
 [ext_resource type="Script" uid="uid://bmc4faw75duvv" path="res://src/gameplay/player/states/player_death_state.gd" id="17_wdigr"]
 [ext_resource type="Script" uid="uid://b5nr66yqq576h" path="res://src/gameplay/player/scripts/player_audio.gd" id="19_7c3x0"]
+[ext_resource type="AudioStream" uid="uid://dm74k7c07h1bi" path="res://assets/audio/SFX/GameSFX/footsteps/step_lth1.ogg" id="22_474t2"]
+[ext_resource type="AudioStream" uid="uid://c8g4ve1fqfuvs" path="res://assets/audio/SFX/GameSFX/footsteps/step_lth2.ogg" id="23_tfg6v"]
+[ext_resource type="AudioStream" uid="uid://mqse15tuqpn" path="res://assets/audio/SFX/GameSFX/footsteps/step_lth4.ogg" id="24_qdl3i"]
+[ext_resource type="AudioStream" uid="uid://dg2ohpaqq8e5w" path="res://assets/audio/SFX/GameSFX/footsteps/step_lth33.ogg" id="25_rf80d"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ch2no"]
 shader = ExtResource("1_mdkad")
@@ -667,7 +671,10 @@ vertical_alignment = 1
 libraries/ = SubResource("AnimationLibrary_trpe4")
 
 [node name="PlayerAudio" type="AudioStreamPlayer" parent="." unique_id=1459384341]
+pitch_scale = 2.02
+bus = &"SFX"
 script = ExtResource("19_7c3x0")
+footstep_sounds = Array[AudioStream]([ExtResource("22_474t2"), ExtResource("23_tfg6v"), ExtResource("24_qdl3i"), ExtResource("25_rf80d")])
 
 [connection signal="OnHit" from="HealthComponent" to="." method="_on_health_component_hit"]
 [connection signal="OnHit" from="HealthComponent" to="AnimatedSprite2D/DamageColorComponent" method="_on_health_component_on_hit"]

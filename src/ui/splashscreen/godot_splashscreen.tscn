@@ -39,7 +39,7 @@ _data = {
 &"transition": SubResource("Animation_pf6lr")
 }
 
-[node name="GodotSplashscreen" type="Control" unique_id=995712456]
+[node name="GodotSplashscreen" type="Control" unique_id=995712456 node_paths=PackedStringArray("animation_player")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,6 +47,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ccw4o")
+animation_player = NodePath("AnimationPlayer")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=474735016]
 layout_mode = 1

@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://s1u2kmc7dn0d"]
 
+[ext_resource type="PackedScene" uid="uid://14hoiayxiqcx" path="res://src/levels/game_music.tscn" id="1_bts26"]
 [ext_resource type="Theme" uid="uid://j15cnci82xwc" path="res://src/resources/themes/basic_theme.tres" id="1_l4v7s"]
 [ext_resource type="PackedScene" uid="uid://pbmgpys855ji" path="res://src/gameplay/managers/enemy_spawner.tscn" id="1_mk4i2"]
 [ext_resource type="PackedScene" uid="uid://cr53ni6guktbu" path="res://src/gameplay/managers/player_spawner.tscn" id="1_nj47t"]
@@ -3183,6 +3184,8 @@ region = Rect2(136, 200, 48, 48)
 [node name="Main" type="Node" unique_id=481724907]
 
 [node name="Systems" type="Node" parent="." unique_id=1934721565]
+
+[node name="GameMusic" parent="Systems" unique_id=154068993 instance=ExtResource("1_bts26")]
 
 [node name="World" type="Node2D" parent="." unique_id=1370709365]
 y_sort_enabled = true

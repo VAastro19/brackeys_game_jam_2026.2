@@ -8,6 +8,7 @@ func enter_state(entity_node) -> void:
 	
 	entity.sprite.animation_finished.connect(_on_animation_finished)
 	entity.sprite.play("death")
+	EventBus.OnGoblinDead.emit()
 
 func _on_animation_finished() -> void:
 	var tween = create_tween()

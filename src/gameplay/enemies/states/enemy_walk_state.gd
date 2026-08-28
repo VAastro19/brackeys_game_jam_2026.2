@@ -29,6 +29,8 @@ func handle_input(_delta) -> void:
 	elif move_dir.x > 0:
 		entity.sprite.flip_h = false
 
+	EventBus.OnGoblinWalk.emit()
+
 func _on_detection_zone_body_exited(body: Node2D) -> void:
 	if not state_machine or entity.is_dead:
 		return

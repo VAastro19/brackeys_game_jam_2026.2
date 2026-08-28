@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://14hoiayxiqcx"]
+
+[ext_resource type="AudioStream" uid="uid://cnx6m7xrdthkc" path="res://assets/audio/Music/ambience.mp3" id="1_o1g3e"]
+[ext_resource type="Script" uid="uid://cwt318wxvhuum" path="res://src/levels/scripts/game_music.gd" id="1_rhvsa"]
+[ext_resource type="AudioStream" uid="uid://ntrr3664jwg4" path="res://assets/audio/Music/samuelfjohanns-evil-cue-111895.mp3" id="3_ii8cb"]
+[ext_resource type="AudioStream" uid="uid://chwcmpw4nxitc" path="res://assets/audio/Music/universfield-tense-dark-background-199278.mp3" id="4_1sdu3"]
+
+[node name="GameMusic" type="Node" unique_id=154068993]
+script = ExtResource("1_rhvsa")
+music_tracks = Array[AudioStream]([ExtResource("3_ii8cb"), ExtResource("4_1sdu3")])
+
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=923299216]
+stream = ExtResource("1_o1g3e")
+volume_db = -10.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1302374819]
+volume_db = -10.0
+bus = &"Music"
+
+[node name="MusicTimer" type="Timer" parent="." unique_id=1202632513]
+wait_time = 60.0
+one_shot = true
+
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]
+[connection signal="timeout" from="MusicTimer" to="." method="_on_music_timer_timeout"]

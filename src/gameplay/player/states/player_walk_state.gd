@@ -21,6 +21,8 @@ func handle_input(_delta) -> void:
 	elif move_dir.x > 0:
 		entity.sprite.flip_h = false
 	
+	EventBus.OnPlayerMove.emit()
+	
 	if Input.is_action_just_pressed("action"):
 		state_machine.change_state(Enums.State.ATTACK1)
 	if move_dir == Vector2.ZERO:

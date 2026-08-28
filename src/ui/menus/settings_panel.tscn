@@ -71,6 +71,7 @@ popup/item_9/text = "640x360"
 popup/item_9/id = 9
 
 [node name="ButtonSFX" type="AudioStreamPlayer" parent="MarginContainer/VBoxContainer/ResolutionsButton" unique_id=1189343955]
+volume_db = -10.0
 bus = &"SFX"
 script = ExtResource("4_mi4rh")
 
@@ -79,6 +80,7 @@ layout_mode = 2
 text = "Fullscreen"
 
 [node name="ButtonSFX" type="AudioStreamPlayer" parent="MarginContainer/VBoxContainer/FullscreenButton" unique_id=44774256]
+volume_db = -10.0
 bus = &"SFX"
 script = ExtResource("4_mi4rh")
 

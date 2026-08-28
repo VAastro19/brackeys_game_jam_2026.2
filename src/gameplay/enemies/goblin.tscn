@@ -21,6 +21,9 @@
 [ext_resource type="PackedScene" uid="uid://h0p562d7o7f" path="res://src/gameplay/components/health_component.tscn" id="12_a272h"]
 [ext_resource type="Script" uid="uid://boettqrebm4nk" path="res://src/gameplay/components/scripts/knockback_component.gd" id="14_a272h"]
 [ext_resource type="Script" uid="uid://dgpu3iul21jyf" path="res://src/gameplay/enemies/states/enemy_death_state.gd" id="17_hyfhi"]
+[ext_resource type="Script" uid="uid://mefdxsbhqrp1" path="res://src/gameplay/enemies/scripts/goblin_audio.gd" id="22_bhwgl"]
+[ext_resource type="AudioStream" uid="uid://3262lgon5bdm" path="res://assets/audio/SFX/GameSFX/goblin_sound1.mp3" id="23_i2ab5"]
+[ext_resource type="AudioStream" uid="uid://dlwxsfqnjalt2" path="res://assets/audio/SFX/GameSFX/goblin_sound2.mp3" id="24_i026b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mdkad"]
 shader = ExtResource("2_1smki")
@@ -454,6 +457,10 @@ offset_right = 33.0
 offset_bottom = -21.0
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="GoblinAudio" type="AudioStreamPlayer" parent="." unique_id=84755341]
+script = ExtResource("22_bhwgl")
+goblin_sounds = Array[AudioStream]([ExtResource("23_i2ab5"), ExtResource("24_i026b")])
 
 [connection signal="body_entered" from="DetectionZone" to="StateMachine/IdleState" method="_on_detection_zone_body_entered"]
 [connection signal="body_exited" from="DetectionZone" to="StateMachine/WalkState" method="_on_detection_zone_body_exited"]

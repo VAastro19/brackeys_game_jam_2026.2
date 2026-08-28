@@ -9,6 +9,7 @@ func enter_state(entity_node) -> void:
 
 	entity.sprite.animation_finished.connect(_on_animation_finished)
 	entity.sprite.play("attack_2")
+	EventBus.OnGoblinAttack.emit()
 
 func exit_state() -> void:
 	weapon_component.hit(1)

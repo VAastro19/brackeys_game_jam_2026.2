@@ -47,7 +47,8 @@ bbcode_enabled = true
 text = "[font_size=14]Graphics - Hypnobius
 Icons - Maeve
 Sprites - Zerie
-UI Inputs - Kenney"
+UI Inputs - Kenney
+Audio - Pixabay, OpenGameArt"
 
 [node name="BackButton" parent="MarginContainer/VBoxContainer" unique_id=1461449071 instance=ExtResource("3_oshaf")]
 layout_mode = 2

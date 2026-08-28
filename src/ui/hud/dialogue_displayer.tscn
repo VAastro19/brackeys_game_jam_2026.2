@@ -120,11 +120,11 @@ text_overrun_behavior = 2
 visible_characters_behavior = 1
 
 [node name="LetterTimer" type="Timer" parent="." unique_id=824917498]
-wait_time = 0.030000000000000002
+wait_time = 0.03
 one_shot = true
 
 [node name="BlipSound" type="AudioStreamPlayer" parent="." unique_id=1789796938]
 stream = ExtResource("3_yhtwy")
-volume_db = -5.0
+volume_db = -15.0
 max_polyphony = 1000
 bus = &"SFX"
