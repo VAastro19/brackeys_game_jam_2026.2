@@ -637,6 +637,7 @@ weapon_component = NodePath("../../WeaponComponent")
 script = ExtResource("17_wdigr")
 
 [node name="StateLabel" type="Label" parent="." unique_id=667508268]
+visible = false
 offset_left = -31.0
 offset_top = -47.0
 offset_right = 33.0

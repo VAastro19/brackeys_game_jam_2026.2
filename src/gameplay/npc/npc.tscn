@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://w3wsh1qrdf5y"]
 
 [ext_resource type="Script" uid="uid://bjg3f2x8men8d" path="res://src/gameplay/npc/scripts/npc.gd" id="1_fnv0k"]
+[ext_resource type="Script" uid="uid://0xj6e7awl4eq" path="res://src/gameplay/components/scripts/dialogue_component.gd" id="2_12g0p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qk5yu"]
 radius = 12.0415945
@@ -27,3 +28,6 @@ collision_mask = 6
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionZone" unique_id=1941016494]
 shape = SubResource("CircleShape2D_082uc")
 debug_color = Color(0.4815259, 0.511272, 0.7737384, 0.41960785)
+
+[node name="DialogueComponent" type="Node" parent="." unique_id=64626371]
+script = ExtResource("2_12g0p")

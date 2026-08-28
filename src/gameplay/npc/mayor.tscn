@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://w3wsh1qrdf5y" path="res://src/gameplay/npc/npc.tscn" id="1_i602j"]
 [ext_resource type="Shader" uid="uid://idsir544qqk7" path="res://src/resources/shaders/global_shader.gdshader" id="2_gv4jg"]
 [ext_resource type="Texture2D" uid="uid://c4dhbscnal11e" path="res://assets/graphics/NPCs/Priest/Priest/Priest_Idle.png" id="3_tc2mu"]
+[ext_resource type="Script" uid="uid://onkjdortmkkk" path="res://src/gameplay/npc/scripts/mayor_events.gd" id="4_gv4jg"]
+[ext_resource type="Texture2D" uid="uid://borp0cgyy8vy4" path="res://assets/graphics/UI/speech bubble, emojis, reaction.png" id="4_tc2mu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pwp2m"]
 shader = ExtResource("2_gv4jg")
@@ -58,6 +60,52 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_082uc"]
+shader = ExtResource("2_gv4jg")
+shader_parameter/saturation = 0.7
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_082uc"]
+atlas = ExtResource("4_tc2mu")
+region = Rect2(53, 80, 6, 13)
+
+[sub_resource type="Animation" id="Animation_tc2mu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExclamationMark:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -43)]
+}
+
+[sub_resource type="Animation" id="Animation_nbcrm"]
+resource_name = "mark_move"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExclamationMark:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -43), Vector2(0, -48), Vector2(0, -43)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ldbr8"]
+_data = {
+&"RESET": SubResource("Animation_tc2mu"),
+&"mark_move": SubResource("Animation_nbcrm")
+}
+
 [node name="Mayor" unique_id=2146350761 instance=ExtResource("1_i602j")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0" unique_id=93149029]
@@ -66,3 +114,23 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_082uc")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="ExclamationMark" type="Sprite2D" parent="." index="1" unique_id=339661124]
+material = SubResource("ShaderMaterial_082uc")
+position = Vector2(0, -43)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_082uc")
+
+[node name="DialogueComponent" parent="." index="4" unique_id=64626371]
+dialogue_array = Array[String](["Welcome Traveller!
+I am Moratio, the Mayor of Evant. What brings you to our town?", "I see. The bridge could be rebuilt by our local mason but he won't move a finger unless he's paid for the job...", "I believe that he has demanded 5,000g for it. If you're in a rush, perhaps you could help us gather those coins?", "I'm sorry, that is the only passage through this river in the area.", "That's great!
+You can forage nearby forests for resources and sell them at our market square.", "Just be careful: there are a lot of fake coins in the circulation..."])
+
+[node name="MayorEvents" type="Node" parent="." index="5" unique_id=1287303189]
+script = ExtResource("4_gv4jg")
+second_dialogue = Array[String](["Come back to me once you have gathered 5,000g.", "Where's the mason?
+Don't worry about it."])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6" unique_id=1623971673]
+libraries/ = SubResource("AnimationLibrary_ldbr8")
+autoplay = &"mark_move"

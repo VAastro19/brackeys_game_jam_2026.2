@@ -7,6 +7,7 @@ extends Control
 
 func _ready() -> void:
 	EventBus.OnNPCInteracted.connect(_begin_interaction)
+	EventBus.OnEndInteraction.connect(_end_interaction)
 
 func _begin_interaction(npc: NPC) -> void:
 	if npc.is_merchant:
@@ -17,7 +18,7 @@ func _begin_interaction(npc: NPC) -> void:
 	else:
 		dialogue_displayer.visible = true
 
-func _end_interaction() -> void:
+func _end_interaction(_npc: NPC) -> void:
 	dialogue_displayer.visible = false
 	buy_panel.visible = false
 	sell_panel.visible = false

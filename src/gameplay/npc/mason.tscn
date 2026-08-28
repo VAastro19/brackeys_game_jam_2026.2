@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://4wvt6unxvci5"]
+
+[ext_resource type="PackedScene" uid="uid://w3wsh1qrdf5y" path="res://src/gameplay/npc/npc.tscn" id="1_fync0"]
+[ext_resource type="Shader" uid="uid://idsir544qqk7" path="res://src/resources/shaders/global_shader.gdshader" id="2_hfmwh"]
+[ext_resource type="Texture2D" uid="uid://bih406npu2gvw" path="res://assets/graphics/NPCs/Soldier/Soldier/Soldier_Idle.png" id="3_4muil"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pwp2m"]
+shader = ExtResource("2_hfmwh")
+shader_parameter/saturation = 0.7
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ym6c"]
+atlas = ExtResource("3_4muil")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmyv8"]
+atlas = ExtResource("3_4muil")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1vme"]
+atlas = ExtResource("3_4muil")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opein"]
+atlas = ExtResource("3_4muil")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adetn"]
+atlas = ExtResource("3_4muil")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knl6y"]
+atlas = ExtResource("3_4muil")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q0ro8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ym6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmyv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1vme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opein")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adetn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knl6y")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[node name="Mason" unique_id=2146350761 instance=ExtResource("1_fync0")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0" unique_id=1294900783]
+material = SubResource("ShaderMaterial_pwp2m")
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_q0ro8")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.5053485
+
+[node name="DialogueComponent" parent="." index="3" unique_id=64626371]
+dialogue_array = Array[String](["And it's done...
+Took longer than I have expected.", "All of that work for 500g...", "What? 5,000g?!", "Sucks to be you I guess.
+I'll head back to town. I wish you better luck on your travels."])

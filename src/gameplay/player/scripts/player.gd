@@ -13,10 +13,13 @@ class_name Player extends Entity
 var can_collect: bool = false
 var nearby_item: Item = null
 var is_dead: bool = false
+var can_move: bool = true
 
 func _ready() -> void:
 	EventBus.OnItemClose.connect(_item_close)
 	EventBus.OnItemFar.connect(_item_far)
+	EventBus.OnNPCInteracted.connect(_interaction_lock)
+	EventBus.OnEndInteraction.connect(_interaction_unlock)
 	
 	$InventoryFullLabel.visible = false
 
@@ -46,6 +49,13 @@ func _item_close(item: Item) -> void:
 func _item_far() -> void:
 	can_collect = false
 	nearby_item = null
+
+func _interaction_lock(_npc: NPC) -> void:
+	can_move = false
+	state_machine.change_state(Enums.State.IDLE)
+
+func _interaction_unlock(_npc: NPC) -> void:
+	can_move = true
 
 func on_death() -> void:
 	EconomyManager.real_coins = roundi(EconomyManager.real_coins * 0.8)

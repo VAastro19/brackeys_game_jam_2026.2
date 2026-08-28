@@ -5,7 +5,7 @@ class_name NPC extends Entity
 @export var is_merchant: bool = false
 @export var is_seller: bool = false
 
-
+@onready var dialogue: Node = $DialogueComponent
 @onready var interaction_zone: Area2D = $InteractionZone
 
 var player_in_range: bool = false

@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://j15cnci82xwc" path="res://src/resources/themes/basic_theme.tres" id="1_8wnuo"]
 [ext_resource type="Texture2D" uid="uid://dxk2fg62wf0cd" path="res://assets/graphics/UI/32x32-Tilesheet.png" id="1_rt4bv"]
+[ext_resource type="Script" uid="uid://cu6c11ao2a2wx" path="res://src/ui/hud/scripts/buy_panel.gd" id="2_o8n0g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rt4bv"]
 atlas = ExtResource("1_rt4bv")
@@ -15,7 +16,7 @@ region = Rect2(191, 191, 33, 33)
 font_size = 12
 font_color = Color(0, 0, 0, 1)
 outline_size = 2
-outline_color = Color(0.90813357, 0.88148147, 0.8584328, 1)
+outline_color = Color(0.4353346, 0.3778684, 0.3275608, 1)
 
 [node name="BuyPanel" type="Control" unique_id=1855679526]
 layout_mode = 3
@@ -26,6 +27,7 @@ offset_bottom = -0.08000946
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_8wnuo")
+script = ExtResource("2_o8n0g")
 
 [node name="Background" type="NinePatchRect" parent="." unique_id=1787155136]
 layout_mode = 1

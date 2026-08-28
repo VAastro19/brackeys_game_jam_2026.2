@@ -130,3 +130,7 @@ sprite_frames = SubResource("SpriteFrames_082uc")
 animation = &"walk"
 autoplay = "idle"
 frame_progress = 0.98247766
+
+[node name="DialogueComponent" parent="." index="3" unique_id=64626371]
+is_random = true
+dialogue_array = Array[String](["May all the stars bow before the Great Altarval!", "I guard Evant for our beloved Emperor.", "Be careful when you venture into the forest. There is a goblin outpost to the east."])

@@ -12,6 +12,7 @@ signal OnItemClose(item: Item)
 signal OnItemFar
 
 signal OnNPCInteracted(npc: NPC)
+signal OnEndInteraction(npc: NPC)
 signal OnNPCClose(npc: NPC)
 signal OnNPCFar
 

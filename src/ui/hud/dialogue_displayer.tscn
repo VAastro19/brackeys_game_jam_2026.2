@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://cl7maiqrtkix5"]
 
 [ext_resource type="Script" uid="uid://c2llvsdj868uw" path="res://src/ui/hud/scripts/dialogue_displayer.gd" id="1_3bonw"]
+[ext_resource type="Shader" uid="uid://idsir544qqk7" path="res://src/resources/shaders/global_shader.gdshader" id="1_6f5xk"]
 [ext_resource type="Texture2D" uid="uid://dxk2fg62wf0cd" path="res://assets/graphics/UI/32x32-Tilesheet.png" id="1_de1tv"]
-[ext_resource type="Script" uid="uid://ou52bosemgrb" path="res://src/ui/hud/scripts/dialogue_base.gd" id="3_yhtwy"]
+[ext_resource type="AudioStream" uid="uid://c50we5dvq7xkf" path="res://assets/audio/SFX/UISFX/text_blip.mp3" id="3_yhtwy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yhtwy"]
+shader = ExtResource("1_6f5xk")
+shader_parameter/saturation = 0.7
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3bonw"]
 atlas = ExtResource("1_de1tv")
@@ -16,9 +21,10 @@ region = Rect2(191, 191, 33, 33)
 font_size = 12
 font_color = Color(0, 0, 0, 1)
 outline_size = 2
-outline_color = Color(0.90813357, 0.88148147, 0.8584328, 1)
+outline_color = Color(0.43943486, 0.38159603, 0.33096537, 1)
 
 [node name="DialogueDisplayer" type="Control" unique_id=266166712]
+material = SubResource("ShaderMaterial_yhtwy")
 layout_mode = 3
 anchor_right = 0.30800003
 anchor_bottom = 0.24200001
@@ -107,14 +113,18 @@ theme_override_constants/margin_bottom = 15
 [node name="Label" type="Label" parent="MarginContainer" unique_id=2134401152]
 layout_mode = 2
 size_flags_vertical = 1
+text = "Never in my life!"
 label_settings = SubResource("LabelSettings_082uc")
 autowrap_mode = 3
-
-[node name="DialogueBase" type="Node" parent="." unique_id=1383000885]
-script = ExtResource("3_yhtwy")
+text_overrun_behavior = 2
+visible_characters_behavior = 1
 
 [node name="LetterTimer" type="Timer" parent="." unique_id=824917498]
-wait_time = 0.05
+wait_time = 0.030000000000000002
 one_shot = true
 
-[node name="LetterSound" type="AudioStreamPlayer" parent="." unique_id=1789796938]
+[node name="BlipSound" type="AudioStreamPlayer" parent="." unique_id=1789796938]
+stream = ExtResource("3_yhtwy")
+volume_db = -5.0
+max_polyphony = 1000
+bus = &"SFX"
