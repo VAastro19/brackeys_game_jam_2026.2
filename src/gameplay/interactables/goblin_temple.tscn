@@ -2,6 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://idsir544qqk7" path="res://src/resources/shaders/global_shader.gdshader" id="1_bwk0p"]
 [ext_resource type="Texture2D" uid="uid://75ikunytv0ac" path="res://assets/graphics/Tileset/AltarSpritesheet.png" id="1_p4tcs"]
+[ext_resource type="PackedScene" uid="uid://bjfsa3lcrkkf3" path="res://src/gameplay/interactables/elevated_area.tscn" id="3_jpn11"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pkh2u"]
 shader = ExtResource("1_bwk0p")
@@ -46,6 +47,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pwp2m"]
 size = Vector2(68, 70)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lsi0j"]
+size = Vector2(31, 38.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_082uc"]
+size = Vector2(150, 70)
+
 [node name="GoblinTemple" type="StaticBody2D" unique_id=1242097092]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1425563496]
@@ -56,7 +63,25 @@ sprite_frames = SubResource("SpriteFrames_082uc")
 autoplay = "default"
 frame_progress = 0.11487882
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=366857916]
+[node name="CollisionShapeCenter" type="CollisionShape2D" parent="." unique_id=366857916]
 y_sort_enabled = true
 position = Vector2(-1, 44)
 shape = SubResource("RectangleShape2D_pwp2m")
+
+[node name="CollisionShapeLeft" type="CollisionShape2D" parent="." unique_id=2002054490]
+y_sort_enabled = true
+position = Vector2(-71.5, 128)
+shape = SubResource("RectangleShape2D_lsi0j")
+
+[node name="CollisionShapeRight" type="CollisionShape2D" parent="." unique_id=2140378657]
+y_sort_enabled = true
+position = Vector2(70, 128.625)
+shape = SubResource("RectangleShape2D_lsi0j")
+
+[node name="ElevatedArea" parent="." unique_id=1942378382 instance=ExtResource("3_jpn11")]
+position = Vector2(0, 70)
+elevation_change = 400.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ElevatedArea" unique_id=877043674]
+shape = SubResource("RectangleShape2D_082uc")
+debug_color = Color(0.80323845, 0.41812667, 0.028149558, 0.41960785)

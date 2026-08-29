@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cl7maiqrtkix5"]
 
-[ext_resource type="Script" uid="uid://c2llvsdj868uw" path="res://src/ui/hud/scripts/dialogue_displayer.gd" id="1_3bonw"]
+[ext_resource type="Script" uid="uid://c2llvsdj868uw" path="res://src/ui/systems_panels/scripts/dialogue_displayer.gd" id="1_3bonw"]
 [ext_resource type="Shader" uid="uid://idsir544qqk7" path="res://src/resources/shaders/global_shader.gdshader" id="1_6f5xk"]
 [ext_resource type="Texture2D" uid="uid://dxk2fg62wf0cd" path="res://assets/graphics/UI/32x32-Tilesheet.png" id="1_de1tv"]
 [ext_resource type="AudioStream" uid="uid://c50we5dvq7xkf" path="res://assets/audio/SFX/UISFX/text_blip.mp3" id="3_yhtwy"]

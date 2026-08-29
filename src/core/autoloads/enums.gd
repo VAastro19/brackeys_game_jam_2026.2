@@ -7,4 +7,4 @@ enum NPCType { MAYOR, MERCHANT_1, MERCHANT_2, MERCHANT_3, WIZARD, GUARD }
 
 enum State { IDLE, WALK, ATTACK1, ATTACK2, ATTACK3, HURT, DEATH }
 
-enum CoinType { REAL, FAKE }
+enum CoinType { REAL }

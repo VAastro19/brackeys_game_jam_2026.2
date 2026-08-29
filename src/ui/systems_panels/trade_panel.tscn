@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://x4fsp0p46mk4"]
+
+[ext_resource type="Theme" uid="uid://j15cnci82xwc" path="res://src/resources/themes/basic_theme.tres" id="1_8wnuo"]
+[ext_resource type="Script" uid="uid://cu6c11ao2a2wx" path="res://src/ui/systems_panels/scripts/trade_panel.gd" id="2_o8n0g"]
+[ext_resource type="PackedScene" uid="uid://c4o1o0v6xx83o" path="res://src/ui/systems_panels/trade_area.tscn" id="3_egbec"]
+[ext_resource type="PackedScene" uid="uid://j3mvoh6yllo1" path="res://src/ui/buttons/custom_button.tscn" id="4_swax5"]
+
+[node name="TradePanel" type="Control" unique_id=1855679526]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8wnuo")
+script = ExtResource("2_o8n0g")
+
+[node name="Background" type="Panel" parent="." unique_id=203643801]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerArea" parent="." unique_id=650339477 instance=ExtResource("3_egbec")]
+layout_mode = 1
+anchor_left = 0.01
+anchor_right = 0.4
+offset_top = 0.0
+offset_bottom = 0.3999815
+is_buy = false
+
+[node name="MerchantArea" parent="." unique_id=56347936 instance=ExtResource("3_egbec")]
+layout_mode = 1
+offset_top = 0.0
+offset_bottom = 0.3999815
+
+[node name="BackButton" parent="." unique_id=1461449071 instance=ExtResource("4_swax5")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.42800003
+anchor_top = 0.88600004
+anchor_right = 0.572
+anchor_bottom = 0.98100007
+offset_left = 0.07998657
+offset_top = 0.039978027
+offset_right = -0.08001709
+offset_bottom = -0.16003418
+text = "Back"

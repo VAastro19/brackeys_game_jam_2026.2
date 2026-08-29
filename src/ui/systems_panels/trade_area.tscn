@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://c4o1o0v6xx83o"]
+
+[ext_resource type="Texture2D" uid="uid://dxk2fg62wf0cd" path="res://assets/graphics/UI/32x32-Tilesheet.png" id="1_5eyyp"]
+[ext_resource type="PackedScene" uid="uid://4h8www4hr1dg" path="res://src/ui/systems_panels/shop_item.tscn" id="2_r3m7j"]
+[ext_resource type="Script" uid="uid://bsm0tos6tsuun" path="res://src/ui/systems_panels/scripts/trade_area.gd" id="2_wd0r0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rt4bv"]
+atlas = ExtResource("1_5eyyp")
+region = Rect2(191, 191, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wnuo"]
+atlas = ExtResource("1_5eyyp")
+region = Rect2(191, 191, 33, 33)
+
+[node name="TradeArea" type="NinePatchRect" unique_id=650339477]
+self_modulate = Color(0.78775924, 0.78775924, 0.78775924, 1)
+anchors_preset = -1
+anchor_left = 0.6
+anchor_top = 0.02
+anchor_right = 0.99
+anchor_bottom = 0.98
+offset_top = -0.19999981
+offset_right = 0.4000244
+offset_bottom = 0.19998169
+texture = ExtResource("1_5eyyp")
+region_rect = Rect2(96, 0, 96, 96)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+script = ExtResource("2_wd0r0")
+
+[node name="DecalsContainer" type="MarginContainer" parent="." unique_id=387834477]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TopLeftDetail" type="TextureRect" parent="DecalsContainer" unique_id=67648347]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_rt4bv")
+expand_mode = 2
+
+[node name="TopRightDetail" type="TextureRect" parent="DecalsContainer" unique_id=2012170513]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_8wnuo")
+expand_mode = 3
+flip_h = true
+
+[node name="BottomRightDetail" type="TextureRect" parent="DecalsContainer" unique_id=1169401099]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_8wnuo")
+expand_mode = 3
+flip_h = true
+flip_v = true
+
+[node name="BottomLeftDetail" type="TextureRect" parent="DecalsContainer" unique_id=2021228698]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_8wnuo")
+expand_mode = 3
+flip_v = true
+
+[node name="CentralContainer" type="MarginContainer" parent="." unique_id=1426668427]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 25
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CentralContainer" unique_id=979375357]
+layout_mode = 2
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="CentralContainer/ScrollContainer" unique_id=850848577]
+layout_mode = 2
+
+[node name="ShopItem" parent="CentralContainer/ScrollContainer/ButtonsContainer" unique_id=153613561 instance=ExtResource("2_r3m7j")]
+layout_mode = 2
+
+[node name="ShopItem2" parent="CentralContainer/ScrollContainer/ButtonsContainer" unique_id=1913754583 instance=ExtResource("2_r3m7j")]
+layout_mode = 2
+
+[node name="ShopItem3" parent="CentralContainer/ScrollContainer/ButtonsContainer" unique_id=272507556 instance=ExtResource("2_r3m7j")]
+layout_mode = 2
+
+[node name="ShopItem4" parent="CentralContainer/ScrollContainer/ButtonsContainer" unique_id=734758037 instance=ExtResource("2_r3m7j")]
+layout_mode = 2
+
+[node name="ShopItem5" parent="CentralContainer/ScrollContainer/ButtonsContainer" unique_id=2005030818 instance=ExtResource("2_r3m7j")]
+layout_mode = 2
+
+[node name="ShopItem6" parent="CentralContainer/ScrollContainer/ButtonsContainer" unique_id=229969041 instance=ExtResource("2_r3m7j")]
+layout_mode = 2
+
+[node name="TradeTypeLabel" type="RichTextLabel" parent="." unique_id=79833852]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_top = 5.0
+offset_right = 50.0
+offset_bottom = 25.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[color=black][outline_size=2][outline_color=b8a89a][i]Sell:"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

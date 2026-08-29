@@ -18,7 +18,8 @@ shadow_color = Color(0, 0, 0, 0.627451)
 [sub_resource type="LabelSettings" id="LabelSettings_pwp2m"]
 font_color = Color(0.7860522, 0.7049337, 0.6316481, 1)
 outline_size = 2
-outline_color = Color(0.93874246, 0.9120217, 0.8870195, 1)
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.5372549)
 
 [node name="ItemField" type="TextureRect" unique_id=1416615611]
 custom_minimum_size = Vector2(40, 40)
@@ -26,7 +27,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = SubResource("AtlasTexture_082uc")
 script = ExtResource("2_nr7a0")
-is_unlocked = true
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1807763422]
 layout_mode = 1

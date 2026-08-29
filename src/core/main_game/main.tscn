@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cxxgopqfqepr4" path="res://assets/graphics/Tileset/Terrain_Decor.png" id="2_1flk8"]
 [ext_resource type="PackedScene" uid="uid://bigdhytncwuij" path="res://src/ui/menus/settings_panel.tscn" id="2_8jwtq"]
 [ext_resource type="PackedScene" uid="uid://bx2xhwrdt2hei" path="res://src/gameplay/managers/item_spawner.tscn" id="2_gr0mf"]
-[ext_resource type="Script" uid="uid://chei2wymiwq63" path="res://src/ui/hud/scripts/pause_root.gd" id="2_h7gx0"]
+[ext_resource type="Script" uid="uid://chei2wymiwq63" path="res://src/ui/systems_panels/scripts/pause_root.gd" id="2_h7gx0"]
 [ext_resource type="Texture2D" uid="uid://djknltm2kevlx" path="res://assets/graphics/Tileset/Ground.png" id="2_iu1vd"]
 [ext_resource type="Texture2D" uid="uid://285wah2ler56" path="res://assets/graphics/Tileset/Props.png" id="3_1um3w"]
 [ext_resource type="PackedScene" uid="uid://cjo1dtt3fpps1" path="res://src/gameplay/player/player.tscn" id="4_1flk8"]
@@ -27,16 +27,15 @@
 [ext_resource type="PackedScene" uid="uid://b3qe3uyn8l62e" path="res://src/gameplay/interactables/goblin_temple.tscn" id="10_hn61g"]
 [ext_resource type="PackedScene" uid="uid://ckhvq3pr5l012" path="res://src/gameplay/npc/merchant_3.tscn" id="10_xo1bi"]
 [ext_resource type="PackedScene" uid="uid://jypw2x0tuhrj" path="res://src/ui/hud/inventory_bar.tscn" id="12_0ndoo"]
-[ext_resource type="Script" uid="uid://bgmoh1dv1p1d0" path="res://src/ui/hud/scripts/hud_root.gd" id="12_grr58"]
+[ext_resource type="Script" uid="uid://bgmoh1dv1p1d0" path="res://src/ui/systems_panels/scripts/hud_root.gd" id="12_grr58"]
 [ext_resource type="PackedScene" uid="uid://cp6rdv0bae6bj" path="res://src/ui/hud/player_health_bar.tscn" id="13_b3g11"]
 [ext_resource type="PackedScene" uid="uid://dlqx4kc4mco5l" path="res://src/ui/hud/coin_counter.tscn" id="14_whnhu"]
 [ext_resource type="PackedScene" uid="uid://7ohq8g0c42dp" path="res://src/ui/hud/input_prompt.tscn" id="15_v63mv"]
 [ext_resource type="Texture2D" uid="uid://688uxvffxo0" path="res://assets/graphics/UI/keyboard-&-mouse_sheet_default.png" id="19_ba8ow"]
-[ext_resource type="PackedScene" uid="uid://cl7maiqrtkix5" path="res://src/ui/hud/dialogue_displayer.tscn" id="20_4q08h"]
+[ext_resource type="PackedScene" uid="uid://cl7maiqrtkix5" path="res://src/ui/systems_panels/dialogue_displayer.tscn" id="20_4q08h"]
 [ext_resource type="PackedScene" uid="uid://bjfsa3lcrkkf3" path="res://src/gameplay/interactables/elevated_area.tscn" id="21_shcbg"]
-[ext_resource type="Script" uid="uid://d7uq42xa5hq" path="res://src/ui/hud/scripts/dialogue_root.gd" id="27_5qb45"]
-[ext_resource type="PackedScene" uid="uid://x4fsp0p46mk4" path="res://src/ui/hud/buy_panel.tscn" id="29_bna6r"]
-[ext_resource type="PackedScene" uid="uid://cijpbuitc6mva" path="res://src/ui/hud/sell_panel.tscn" id="30_p4jni"]
+[ext_resource type="Script" uid="uid://d7uq42xa5hq" path="res://src/ui/systems_panels/scripts/interaction_root.gd" id="27_5qb45"]
+[ext_resource type="PackedScene" uid="uid://x4fsp0p46mk4" path="res://src/ui/systems_panels/trade_panel.tscn" id="29_bna6r"]
 [ext_resource type="PackedScene" uid="uid://0v2fvrb35a6p" path="res://src/ui/cutscenes/beginning_cutscene.tscn" id="36_8hhnc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_725ky"]
@@ -3796,7 +3795,7 @@ type = 2
 y_sort_enabled = true
 
 [node name="Player" parent="World/EntityRoot" unique_id=1570054860 node_paths=PackedStringArray("inventory_bar") instance=ExtResource("4_1flk8")]
-position = Vector2(2573, 534)
+position = Vector2(406, -860)
 inventory_bar = NodePath("../../../HudLayer/HudRoot/InventoryBar")
 
 [node name="Mayor" parent="World/EntityRoot" unique_id=2146350761 instance=ExtResource("5_wonw4")]
@@ -3936,6 +3935,7 @@ physics_quadrant_size = 24
 position = Vector2(3668, -410)
 
 [node name="Bridge1" parent="World/LevelRoot" unique_id=1942378382 instance=ExtResource("21_shcbg")]
+elevation_change = 300.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/LevelRoot/Bridge1" unique_id=966739723]
 position = Vector2(2448, 1046)
@@ -3943,6 +3943,7 @@ shape = SubResource("RectangleShape2D_082uc")
 
 [node name="Bridge2" parent="World/LevelRoot" unique_id=1879421643 instance=ExtResource("21_shcbg")]
 position = Vector2(-576, -912)
+elevation_change = 300.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/LevelRoot/Bridge2" unique_id=899026350]
 position = Vector2(2447, 1046)
@@ -3989,12 +3990,7 @@ grow_vertical = 0
 [node name="CoinCounters" type="VBoxContainer" parent="HudLayer/HudRoot" unique_id=252553796]
 layout_mode = 0
 offset_right = 135.0
-offset_bottom = 64.0
-
-[node name="FakeCoinCounter" parent="HudLayer/HudRoot/CoinCounters" unique_id=2012738347 instance=ExtResource("14_whnhu")]
-layout_mode = 2
-size_flags_vertical = 3
-coin_type = 1
+offset_bottom = 33.0
 
 [node name="RealCoinCounter" parent="HudLayer/HudRoot/CoinCounters" unique_id=460394161 instance=ExtResource("14_whnhu")]
 layout_mode = 2
@@ -4003,10 +3999,10 @@ size_flags_vertical = 3
 [node name="InputPrompt" parent="HudLayer/HudRoot" unique_id=324019227 instance=ExtResource("15_v63mv")]
 layout_mode = 1
 
-[node name="DialogueLayer" type="CanvasLayer" parent="." unique_id=973972360]
+[node name="InteractionLayer" type="CanvasLayer" parent="." unique_id=973972360]
 layer = 15
 
-[node name="DialogueRoot" type="Control" parent="DialogueLayer" unique_id=300948565]
+[node name="InteractionRoot" type="Control" parent="InteractionLayer" unique_id=300948565]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
@@ -4017,7 +4013,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("27_5qb45")
 
-[node name="DialogueDisplayer" parent="DialogueLayer/DialogueRoot" unique_id=266166712 instance=ExtResource("20_4q08h")]
+[node name="DialogueDisplayer" parent="InteractionLayer/InteractionRoot" unique_id=266166712 instance=ExtResource("20_4q08h")]
 visible = false
 layout_mode = 1
 anchors_preset = 7
@@ -4031,32 +4027,9 @@ offset_right = 159.0
 offset_bottom = 0.0
 grow_vertical = 0
 
-[node name="BuyPanel" parent="DialogueLayer/DialogueRoot" unique_id=1855679526 instance=ExtResource("29_bna6r")]
+[node name="TradePanel" parent="InteractionLayer/InteractionRoot" unique_id=1855679526 instance=ExtResource("29_bna6r")]
 visible = false
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -159.0
-offset_top = -100.0
-offset_right = 159.0
-offset_bottom = 0.0
-grow_vertical = 0
-
-[node name="SellPanel" parent="DialogueLayer/DialogueRoot" unique_id=1488444719 instance=ExtResource("30_p4jni")]
-visible = false
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-offset_left = -159.0
-offset_top = -100.0
-offset_right = 159.0
-offset_bottom = 0.0
-grow_vertical = 0
 
 [node name="PauseLayer" type="CanvasLayer" parent="." unique_id=1042312839]
 layer = 20

@@ -14,6 +14,8 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		settings_panel.visible = true
 		are_you_sure_box.visible = false
+
+		%HudRoot.visible = !%HudRoot.visible
 		visible = !visible
 
 func _on_quit_button_pressed() -> void:
@@ -23,7 +25,7 @@ func _on_quit_button_pressed() -> void:
 func _on_yes_button_pressed() -> void:
 	are_you_sure_box.visible = false
 	corner_details.visible = false
-	%DialogueRoot.visible = false
+	%InteractionRoot.visible = false
 	%HudRoot.visible = false
 	%TransitionRoot.visible = false
 	SceneLoader.load_scene("uid://ci0ayyg4ero1o") # Load main menu

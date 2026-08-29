@@ -17,5 +17,5 @@ func _physics_process(delta: float) -> void:
 
 func on_death() -> void:
 	var loot_coins: int = randi_range(5, 15)
-	EconomyManager.fake_coins += loot_coins
-	EventBus.OnCoinUpdate.emit(EconomyManager.fake_coins, Enums.CoinType.FAKE)
+	EconomyManager.real_coins += loot_coins
+	EventBus.OnCoinUpdate.emit(EconomyManager.real_coins, Enums.CoinType.REAL)

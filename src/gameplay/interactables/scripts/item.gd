@@ -27,7 +27,7 @@ func _update_item(new_item: Enums.ItemType) -> void:
 	else:
 		item_texture = load(ItemPath.path[new_item])
 
-	_load_texture(item_texture)
+	_load_texture.call_deferred(item_texture)
 
 func _load_texture(new_texture: Texture2D) -> void:
 	if atlas_texture == null:

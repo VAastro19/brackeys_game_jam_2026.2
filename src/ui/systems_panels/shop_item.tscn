@@ -1,0 +1,237 @@
+[gd_scene format=3 uid="uid://4h8www4hr1dg"]
+
+[ext_resource type="Texture2D" uid="uid://dxk2fg62wf0cd" path="res://assets/graphics/UI/32x32-Tilesheet.png" id="1_c4s4m"]
+[ext_resource type="Script" uid="uid://cyjgh0t2gsybs" path="res://src/ui/systems_panels/scripts/shop_item.gd" id="2_ahuw1"]
+[ext_resource type="Texture2D" uid="uid://mt6i5syav7vi" path="res://assets/graphics/Crops/Pumpkin.png" id="3_ahuw1"]
+[ext_resource type="Texture2D" uid="uid://csdegdlw0s7t" path="res://assets/graphics/Objects/Money.png" id="4_f5wmr"]
+[ext_resource type="Script" uid="uid://cmrn7ygu3mv5q" path="res://src/ui/buttons/scripts/button_sfx.gd" id="5_8f1gs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4s4m"]
+atlas = ExtResource("1_c4s4m")
+region = Rect2(320, 106, 32, 15)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l60tc"]
+texture = SubResource("AtlasTexture_c4s4m")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahuw1"]
+atlas = ExtResource("1_c4s4m")
+region = Rect2(288, 106, 32, 15)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vvmv1"]
+texture = SubResource("AtlasTexture_ahuw1")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.581033, 0.58103293, 0.5810329, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c4s4m"]
+texture = SubResource("AtlasTexture_ahuw1")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_082uc"]
+atlas = ExtResource("1_c4s4m")
+region = Rect2(210, 18, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5wmr"]
+atlas = ExtResource("3_ahuw1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwp2m"]
+atlas = ExtResource("4_f5wmr")
+region = Rect2(4, 4, 8, 8)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8f1gs"]
+font_color = Color(0.72156864, 0.65882355, 0.6039216, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.65882355)
+
+[sub_resource type="LabelSettings" id="LabelSettings_082uc"]
+font_color = Color(0.72156864, 0.65882355, 0.6039216, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.57254905)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlmnt"]
+atlas = ExtResource("1_c4s4m")
+region = Rect2(288, 106, 32, 15)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f5wmr"]
+texture = SubResource("AtlasTexture_hlmnt")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8f1gs"]
+texture = SubResource("AtlasTexture_hlmnt")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.3529412, 0.49803922, 0.49803922, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q0ro8"]
+texture = SubResource("AtlasTexture_hlmnt")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.5689727, 0.56897277, 0.5689727, 1)
+
+[node name="ShopItem" type="Button" unique_id=153613561]
+custom_minimum_size = Vector2(200, 50)
+custom_maximum_size = Vector2(-1, 50)
+anchors_preset = -1
+anchor_right = 0.312
+anchor_bottom = 0.13900001
+offset_right = 0.31999207
+offset_bottom = -0.04000473
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_l60tc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vvmv1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_c4s4m")
+script = ExtResource("2_ahuw1")
+
+[node name="IconBackground" type="TextureRect" parent="." unique_id=2014596727]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.016
+anchor_top = 0.042000003
+anchor_right = 0.23700002
+anchor_bottom = 0.98600006
+offset_left = 0.08544016
+offset_top = -0.01896
+offset_right = 0.08307648
+offset_bottom = 0.0063171387
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_082uc")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="IconBackground" unique_id=1887521133]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ItemIcon" type="TextureRect" parent="IconBackground/MarginContainer" unique_id=557211586]
+layout_mode = 2
+texture = SubResource("AtlasTexture_f5wmr")
+
+[node name="Name" type="RichTextLabel" parent="." unique_id=258540699]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.254
+anchor_top = 0.062000003
+anchor_right = 0.74
+anchor_bottom = 0.40300003
+offset_left = -0.01863861
+offset_top = 0.021559954
+offset_bottom = 0.032360077
+size_flags_vertical = 3
+mouse_filter = 2
+bbcode_enabled = true
+text = "[font_size=10][b][outline_size=3][color=b8a89a]Inventory Expansion"
+scroll_active = false
+vertical_alignment = 1
+
+[node name="Description" type="RichTextLabel" parent="." unique_id=702124844]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.254
+anchor_top = 0.418
+anchor_right = 0.74
+anchor_bottom = 0.90400004
+offset_left = -0.01863861
+offset_top = -0.02396202
+offset_bottom = 0.020477295
+size_flags_vertical = 3
+mouse_filter = 2
+bbcode_enabled = true
+text = "[font_size=10][outline_size=2]Expands  the inventory by one slot."
+scroll_active = false
+
+[node name="Price" type="HBoxContainer" parent="." unique_id=1023685789]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75500005
+anchor_top = 0.1
+anchor_right = 0.9850001
+anchor_bottom = 0.5
+offset_left = -1.5258789e-05
+offset_right = -1.5258789e-05
+alignment = 2
+
+[node name="CoinTexture" type="TextureRect" parent="Price" unique_id=1646318888]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_scale = Vector2(1.4, 1.4)
+mouse_filter = 2
+texture = SubResource("AtlasTexture_pwp2m")
+stretch_mode = 4
+
+[node name="PriceLabel" type="Label" parent="Price" unique_id=586159787]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "200"
+label_settings = SubResource("LabelSettings_8f1gs")
+vertical_alignment = 1
+
+[node name="QuantityLabel" type="Label" parent="." unique_id=2070079876]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.115
+anchor_top = 0.5
+anchor_right = 0.245
+anchor_bottom = 0.98
+text = "5"
+label_settings = SubResource("LabelSettings_082uc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TradeAllButton" type="Button" parent="." unique_id=1779027663]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75500005
+anchor_top = 0.52000004
+anchor_right = 0.9850001
+anchor_bottom = 0.94000006
+offset_left = -1.5258789e-05
+offset_right = -1.5258789e-05
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxTexture_f5wmr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8f1gs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_q0ro8")
+text = "Buy All"
+
+[node name="ButtonSFX" type="AudioStreamPlayer" parent="TradeAllButton" unique_id=1499600943]
+volume_db = -10.0
+bus = &"SFX"
+script = ExtResource("5_8f1gs")
+
+[node name="ButtonSFX" type="AudioStreamPlayer" parent="." unique_id=1835551005]
+volume_db = -10.0
+bus = &"SFX"
+script = ExtResource("5_8f1gs")
