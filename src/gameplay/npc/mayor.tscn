@@ -123,13 +123,14 @@ texture = SubResource("AtlasTexture_082uc")
 
 [node name="DialogueComponent" parent="." index="4" unique_id=64626371]
 dialogue_array = Array[String](["Welcome Traveller!
-I am Moratio, the Mayor of Evant. What brings you to our town?", "I see. The bridge could be rebuilt by our local mason but he won't move a finger unless he's paid for the job...", "I believe that he has demanded 5,000g for it. If you're in a rush, perhaps you could help us gather those coins?", "I'm sorry, that is the only passage through this river in the area.", "That's great!
+I am Moratio, the Mayor of Evant. What brings you to our town?", "I see. The bridge could be rebuilt by our local mason but he won't move a finger unless he's paid for the job...", "I believe that he has demanded 2,000g for it. If you're in a rush, perhaps you could help us gather those coins?", "I'm sorry, that is the only passage through this river in the area.", "That's great!
 You can forage nearby forests for resources and sell them at our market square.", "Just be careful: there are a lot of fake coins in the circulation..."])
 
 [node name="MayorEvents" type="Node" parent="." index="5" unique_id=1287303189]
 script = ExtResource("4_gv4jg")
-second_dialogue = Array[String](["Come back to me once you have gathered 5,000g.", "Where's the mason?
+second_dialogue = Array[String](["Come back to me once you have gathered 2,000g.", "Where's the mason?
 Don't worry about it."])
+third_dialogue = Array[String](["You have really collected 2,000g?!", "You are more nai... I mean determined than I have thought!", "I'll take the money and call the mason right away."])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6" unique_id=1623971673]
 libraries/ = SubResource("AnimationLibrary_ldbr8")

@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://285wah2ler56" path="res://assets/graphics/Tileset/Props.png" id="3_1um3w"]
 [ext_resource type="PackedScene" uid="uid://cjo1dtt3fpps1" path="res://src/gameplay/player/player.tscn" id="4_1flk8"]
 [ext_resource type="PackedScene" uid="uid://ctebcabyvcq82" path="res://src/ui/menus/are_you_sure_box.tscn" id="4_xijci"]
+[ext_resource type="PackedScene" uid="uid://bxdhb60rs84pl" path="res://src/gameplay/npc/beginning.tscn" id="5_bts26"]
 [ext_resource type="Texture2D" uid="uid://dpbqhurq7qycx" path="res://assets/graphics/Tileset/Walls.png" id="5_hn61g"]
 [ext_resource type="PackedScene" uid="uid://v08av6l1xbxc" path="res://src/gameplay/npc/mayor.tscn" id="5_wonw4"]
 [ext_resource type="PackedScene" uid="uid://c5tmbiwoeg8xx" path="res://src/ui/menus/corner_details.tscn" id="5_yuwmb"]
@@ -37,12 +38,13 @@
 [ext_resource type="Script" uid="uid://d7uq42xa5hq" path="res://src/ui/systems_panels/scripts/interaction_root.gd" id="27_5qb45"]
 [ext_resource type="PackedScene" uid="uid://x4fsp0p46mk4" path="res://src/ui/systems_panels/trade_panel.tscn" id="29_bna6r"]
 [ext_resource type="PackedScene" uid="uid://0v2fvrb35a6p" path="res://src/ui/cutscenes/beginning_cutscene.tscn" id="36_8hhnc"]
+[ext_resource type="PackedScene" uid="uid://cfjs8fwvvqocq" path="res://src/ui/cutscenes/ending_cutscene.tscn" id="39_gvfhh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_725ky"]
 shader = ExtResource("1_qp306")
 shader_parameter/saturation = 0.7
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4i5e7"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bts26"]
 texture = ExtResource("1_uhhkv")
 texture_region_size = Vector2i(24, 24)
 0:0/animation_separation = Vector2i(3, 0)
@@ -638,7 +640,7 @@ texture_region_size = Vector2i(24, 24)
 28:0/0 = 0
 28:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, 12, -12, -12, 12, -12, 12, 12)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v63mv"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gvfhh"]
 texture = ExtResource("2_iu1vd")
 texture_region_size = Vector2i(24, 24)
 0:0/0 = 0
@@ -717,14 +719,14 @@ texture_region_size = Vector2i(24, 24)
 [sub_resource type="TileSet" id="TileSet_082uc"]
 tile_size = Vector2i(24, 24)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_4i5e7")
-sources/1 = SubResource("TileSetAtlasSource_v63mv")
+sources/0 = SubResource("TileSetAtlasSource_bts26")
+sources/1 = SubResource("TileSetAtlasSource_gvfhh")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3kyyh"]
 shader = ExtResource("1_qp306")
 shader_parameter/saturation = 0.7
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q3f53"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5xqj4"]
 texture = ExtResource("2_1flk8")
 texture_region_size = Vector2i(24, 24)
 0:0/0 = 0
@@ -1000,7 +1002,7 @@ texture_region_size = Vector2i(24, 24)
 24:0/0 = 0
 25:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hn61g"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oehdx"]
 texture = ExtResource("1_uhhkv")
 texture_region_size = Vector2i(24, 24)
 0:0/0 = 0
@@ -1375,14 +1377,14 @@ texture_region_size = Vector2i(24, 24)
 [sub_resource type="TileSet" id="TileSet_pwp2m"]
 tile_size = Vector2i(24, 24)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_q3f53")
-sources/1 = SubResource("TileSetAtlasSource_hn61g")
+sources/0 = SubResource("TileSetAtlasSource_5xqj4")
+sources/1 = SubResource("TileSetAtlasSource_oehdx")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xo1bi"]
 shader = ExtResource("1_qp306")
 shader_parameter/saturation = 0.7
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_drj1i"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7yu2l"]
 texture = ExtResource("3_1um3w")
 texture_region_size = Vector2i(24, 24)
 2:0/0 = 0
@@ -1721,13 +1723,13 @@ texture_region_size = Vector2i(24, 24)
 [sub_resource type="TileSet" id="TileSet_q0ro8"]
 tile_size = Vector2i(24, 24)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_drj1i")
+sources/0 = SubResource("TileSetAtlasSource_7yu2l")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5qb45"]
 shader = ExtResource("1_qp306")
 shader_parameter/saturation = 0.7
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ndoo"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7822q"]
 texture = ExtResource("3_1um3w")
 texture_region_size = Vector2i(24, 24)
 2:0/0 = 0
@@ -2042,13 +2044,13 @@ texture_region_size = Vector2i(24, 24)
 [sub_resource type="TileSet" id="TileSet_b3g11"]
 tile_size = Vector2i(24, 24)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_0ndoo")
+sources/0 = SubResource("TileSetAtlasSource_7822q")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bna6r"]
 shader = ExtResource("1_qp306")
 shader_parameter/saturation = 0.7
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ba8ow"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bjdsr"]
 texture = ExtResource("5_hn61g")
 texture_region_size = Vector2i(24, 24)
 1:0/0 = 0
@@ -2180,7 +2182,7 @@ texture_region_size = Vector2i(24, 24)
 3:3/0 = 0
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, 12, 12, 12, 12, -12, -12, -12)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_grr58"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iitln"]
 texture = ExtResource("6_0ndoo")
 texture_region_size = Vector2i(24, 24)
 0:0/0 = 0
@@ -2275,14 +2277,14 @@ texture_region_size = Vector2i(24, 24)
 [sub_resource type="TileSet" id="TileSet_hlmnt"]
 tile_size = Vector2i(24, 24)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_ba8ow")
-sources/1 = SubResource("TileSetAtlasSource_grr58")
+sources/0 = SubResource("TileSetAtlasSource_bjdsr")
+sources/1 = SubResource("TileSetAtlasSource_iitln")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p4jni"]
 shader = ExtResource("1_qp306")
 shader_parameter/saturation = 0.7
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mk4i2"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vql7s"]
 texture = ExtResource("7_b3g11")
 texture_region_size = Vector2i(24, 24)
 0:0/0 = 0
@@ -2904,13 +2906,13 @@ texture_region_size = Vector2i(24, 24)
 [sub_resource type="TileSet" id="TileSet_v7b15"]
 tile_size = Vector2i(24, 24)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_mk4i2")
+sources/0 = SubResource("TileSetAtlasSource_vql7s")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8hhnc"]
 shader = ExtResource("1_qp306")
 shader_parameter/saturation = 0.7
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iu1vd"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uwc6s"]
 texture = ExtResource("8_whnhu")
 texture_region_size = Vector2i(48, 48)
 2:0/0 = 0
@@ -3154,7 +3156,7 @@ texture_region_size = Vector2i(48, 48)
 [sub_resource type="TileSet" id="TileSet_hn61g"]
 tile_size = Vector2i(48, 48)
 physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_iu1vd")
+sources/1 = SubResource("TileSetAtlasSource_uwc6s")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_shcbg"]
 shader = ExtResource("1_qp306")
@@ -3794,11 +3796,14 @@ type = 2
 [node name="EntityRoot" type="Node2D" parent="World" unique_id=1225809294]
 y_sort_enabled = true
 
+[node name="Beginning" parent="World/EntityRoot" unique_id=2146350761 instance=ExtResource("5_bts26")]
+position = Vector2(2734, 621)
+
 [node name="Player" parent="World/EntityRoot" unique_id=1570054860 node_paths=PackedStringArray("inventory_bar") instance=ExtResource("4_1flk8")]
-position = Vector2(406, -860)
+position = Vector2(2733, 585)
 inventory_bar = NodePath("../../../HudLayer/HudRoot/InventoryBar")
 
-[node name="Mayor" parent="World/EntityRoot" unique_id=2146350761 instance=ExtResource("5_wonw4")]
+[node name="Mayor" parent="World/EntityRoot" unique_id=1722840907 instance=ExtResource("5_wonw4")]
 position = Vector2(1536, -797)
 collision_layer = 1
 collision_mask = 1
@@ -4158,8 +4163,12 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="BeginningCutscene" parent="TransitionLayer/TransitionRoot" unique_id=1183609808 instance=ExtResource("36_8hhnc")]
+[node name="BeginningCutscene" parent="TransitionLayer/TransitionRoot" unique_id=1183609808 node_paths=PackedStringArray("beginning") instance=ExtResource("36_8hhnc")]
 visible = false
+layout_mode = 1
+beginning = NodePath("../../../World/EntityRoot/Beginning")
+
+[node name="EndingCutscene" parent="TransitionLayer/TransitionRoot" unique_id=1159631220 instance=ExtResource("39_gvfhh")]
 layout_mode = 1
 
 [node name="DebugLayer" type="CanvasLayer" parent="." unique_id=1024628919]

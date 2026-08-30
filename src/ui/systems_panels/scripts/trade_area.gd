@@ -21,5 +21,10 @@ func setup_trade_area() -> void:
 			item.is_buy = is_buy
 			add_shop_item(item)
 
+func clean_trade_area() -> void:
+	for child in buttons_container.get_children():
+		child.queue_free()
+	items.clear()
+
 func add_shop_item(shop_item: ShopItem) -> void:
 	buttons_container.add_child(shop_item)

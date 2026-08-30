@@ -4,6 +4,7 @@ extends Control
 @onready var label: Label = $MarginContainer/Label
 @onready var blip_sound: AudioStreamPlayer = $BlipSound
 @onready var timer: Timer = $LetterTimer
+@onready var continue_prompt: HBoxContainer = $ContinuePrompt
 
 var ongoing_dialogue: bool = false
 var interacted_npc: NPC = null
@@ -21,9 +22,12 @@ var dialogue_index: int = 0:
 func _ready() -> void:
 	EventBus.OnNPCInteracted.connect(_begin_dialogue)
 	label.text = ""
+	continue_prompt.visible = false
 	timer.timeout.connect(_animate_dialogue)
 
 func _begin_dialogue(npc: NPC) -> void:
+	continue_prompt.visible = false
+
 	if ongoing_dialogue:
 		_animate_dialogue()
 		return
@@ -57,6 +61,7 @@ func _animate_dialogue() -> void:
 	
 	if label.visible_ratio == 1:
 		dialogue_index += 1
+		continue_prompt.visible = true
 	else:
 		timer.start()
 
@@ -64,6 +69,7 @@ func _end_dialogue() -> void:
 	EventBus.OnEndInteraction.emit(interacted_npc)
 	interacted_npc = null
 	ongoing_dialogue = false
+	continue_prompt.visible = false
 	dialogue_index = 0
 	last_index = 0
 	label.text = ""

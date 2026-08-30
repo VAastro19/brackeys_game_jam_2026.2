@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://j15cnci82xwc" path="res://src/resources/themes/basic_theme.tres" id="1_8wnuo"]
 [ext_resource type="Script" uid="uid://cu6c11ao2a2wx" path="res://src/ui/systems_panels/scripts/trade_panel.gd" id="2_o8n0g"]
+[ext_resource type="PackedScene" uid="uid://dlqx4kc4mco5l" path="res://src/ui/hud/coin_counter.tscn" id="3_05blx"]
 [ext_resource type="PackedScene" uid="uid://c4o1o0v6xx83o" path="res://src/ui/systems_panels/trade_area.tscn" id="3_egbec"]
 [ext_resource type="PackedScene" uid="uid://j3mvoh6yllo1" path="res://src/ui/buttons/custom_button.tscn" id="4_swax5"]
 
@@ -22,6 +23,33 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="CoinCounter" parent="." unique_id=460394161 instance=ExtResource("3_05blx")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -54.0
+offset_top = 8.0
+offset_right = 96.0
+offset_bottom = 38.0
+grow_horizontal = 2
+
+[node name="TradeDescription" type="RichTextLabel" parent="." unique_id=1134018858]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.0
+offset_top = -128.0
+offset_right = 51.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[font_size=12][b][outline_size=3][color=b8a89a]Merchant gave you 7 fake coins..."
 
 [node name="PlayerArea" parent="." unique_id=650339477 instance=ExtResource("3_egbec")]
 layout_mode = 1

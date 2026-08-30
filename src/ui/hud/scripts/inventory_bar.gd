@@ -5,7 +5,14 @@ class_name InventoryBar extends Control
 @onready var slots: Array = []
 
 func _ready() -> void:
+	EventBus.OnSlotUnlocked.connect(_unlock_slot)
 	slots = placeholder.get_children()
+
+func _unlock_slot() -> void:
+	for slot in slots:
+		if not slot.is_unlocked:
+			slot.is_unlocked = true
+			return
 
 func try_add_item(collected_item: Enums.ItemType) -> bool:
 	var found_slot: bool = false

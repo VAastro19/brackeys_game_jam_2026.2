@@ -8,6 +8,7 @@ class_name Player extends Entity
 @onready var state_label: Label = $StateLabel
 
 @onready var state_machine: Node = $StateMachine
+@onready var inventory_component: InventoryComponent = $InventoryComponent
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var can_collect: bool = false

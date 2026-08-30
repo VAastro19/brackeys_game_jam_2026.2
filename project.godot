@@ -12,7 +12,7 @@ config_version=5
 
 config/name="thieves_of_evant"
 config/tags=PackedStringArray("gamejam", "maingame")
-run/main_scene="uid://s1u2kmc7dn0d"
+run/main_scene="uid://b2otdbqfsowrg"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
@@ -27,6 +27,7 @@ SceneLoader="*uid://bt6l5pi2yrr6c"
 Enums="*uid://brtbsqsr74h85"
 ItemPath="*uid://b16en8foyetj2"
 EconomyManager="*uid://b4b71vbqwxjck"
+ShopData="*uid://colj745aqva6h"
 
 [display]
 

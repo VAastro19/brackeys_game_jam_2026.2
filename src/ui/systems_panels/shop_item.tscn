@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://mt6i5syav7vi" path="res://assets/graphics/Crops/Pumpkin.png" id="3_ahuw1"]
 [ext_resource type="Texture2D" uid="uid://csdegdlw0s7t" path="res://assets/graphics/Objects/Money.png" id="4_f5wmr"]
 [ext_resource type="Script" uid="uid://cmrn7ygu3mv5q" path="res://src/ui/buttons/scripts/button_sfx.gd" id="5_8f1gs"]
+[ext_resource type="AudioStream" uid="uid://b0oechswnekvf" path="res://assets/audio/SFX/GameSFX/coin.mp3" id="6_vvmv1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c4s4m"]
 atlas = ExtResource("1_c4s4m")
@@ -190,7 +191,7 @@ offset_transform_enabled = true
 offset_transform_scale = Vector2(1.4, 1.4)
 mouse_filter = 2
 texture = SubResource("AtlasTexture_pwp2m")
-stretch_mode = 4
+stretch_mode = 3
 
 [node name="PriceLabel" type="Label" parent="Price" unique_id=586159787]
 layout_mode = 2
@@ -235,3 +236,7 @@ script = ExtResource("5_8f1gs")
 volume_db = -10.0
 bus = &"SFX"
 script = ExtResource("5_8f1gs")
+
+[node name="BoughtSFX" type="AudioStreamPlayer" parent="." unique_id=789202935]
+stream = ExtResource("6_vvmv1")
+volume_db = -5.0

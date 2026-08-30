@@ -70,5 +70,5 @@ frame_progress = 0.5053485
 
 [node name="DialogueComponent" parent="." index="3" unique_id=64626371]
 dialogue_array = Array[String](["And it's done...
-Took longer than I have expected.", "All of that work for 500g...", "What? 5,000g?!", "Sucks to be you I guess.
+Took longer than I have expected.", "All of that work for 200g...", "What? 2,000g?!", "Sucks to be you I guess.
 I'll head back to town. I wish you better luck on your travels."])

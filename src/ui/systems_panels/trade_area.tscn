@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://c4o1o0v6xx83o"]
 
 [ext_resource type="Texture2D" uid="uid://dxk2fg62wf0cd" path="res://assets/graphics/UI/32x32-Tilesheet.png" id="1_5eyyp"]
-[ext_resource type="PackedScene" uid="uid://4h8www4hr1dg" path="res://src/ui/systems_panels/shop_item.tscn" id="2_r3m7j"]
 [ext_resource type="Script" uid="uid://bsm0tos6tsuun" path="res://src/ui/systems_panels/scripts/trade_area.gd" id="2_wd0r0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rt4bv"]
@@ -13,7 +12,7 @@ atlas = ExtResource("1_5eyyp")
 region = Rect2(191, 191, 33, 33)
 
 [node name="TradeArea" type="NinePatchRect" unique_id=650339477]
-self_modulate = Color(0.78775924, 0.78775924, 0.78775924, 1)
+self_modulate = Color(0.7882353, 0.7882353, 0.7882353, 1)
 anchors_preset = -1
 anchor_left = 0.6
 anchor_top = 0.02
@@ -96,24 +95,6 @@ theme_override_constants/margin_bottom = 25
 layout_mode = 2
 
 [node name="ButtonsContainer" type="VBoxContainer" parent="CentralContainer/ScrollContainer" unique_id=850848577]
-layout_mode = 2
-
-[node name="ShopItem" parent="CentralContainer/ScrollContainer/ButtonsContainer" unique_id=153613561 instance=ExtResource("2_r3m7j")]
-layout_mode = 2
-
-[node name="ShopItem2" parent="CentralContainer/ScrollContainer/ButtonsContainer" unique_id=1913754583 instance=ExtResource("2_r3m7j")]
-layout_mode = 2
-
-[node name="ShopItem3" parent="CentralContainer/ScrollContainer/ButtonsContainer" unique_id=272507556 instance=ExtResource("2_r3m7j")]
-layout_mode = 2
-
-[node name="ShopItem4" parent="CentralContainer/ScrollContainer/ButtonsContainer" unique_id=734758037 instance=ExtResource("2_r3m7j")]
-layout_mode = 2
-
-[node name="ShopItem5" parent="CentralContainer/ScrollContainer/ButtonsContainer" unique_id=2005030818 instance=ExtResource("2_r3m7j")]
-layout_mode = 2
-
-[node name="ShopItem6" parent="CentralContainer/ScrollContainer/ButtonsContainer" unique_id=229969041 instance=ExtResource("2_r3m7j")]
 layout_mode = 2
 
 [node name="TradeTypeLabel" type="RichTextLabel" parent="." unique_id=79833852]

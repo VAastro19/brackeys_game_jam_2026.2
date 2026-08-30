@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c7hjf3fjimdpc"]
+
+[ext_resource type="PackedScene" uid="uid://w3wsh1qrdf5y" path="res://src/gameplay/npc/npc.tscn" id="1_2i33u"]
+
+[node name="Ending" unique_id=2146350761 instance=ExtResource("1_2i33u")]
+
+[node name="DialogueComponent" parent="." index="2" unique_id=64626371]
+dialogue_array = Array[String](["As you finally cross the bridge and leave those thieves in Evant behind, you hope that you will never have to set foot in this gods forsaken land again..."])

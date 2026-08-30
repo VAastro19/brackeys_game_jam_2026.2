@@ -29,8 +29,8 @@ func take_damage(damage: int) -> void:
 		regen_cooldown_timer.start()
 	
 	if health <= 0:
-		state_machine.change_state(Enums.State.DEATH)
 		entity.on_death()
+		state_machine.change_state(Enums.State.DEATH)
 
 func regenerate() -> void:
 	if allow_regeneration:

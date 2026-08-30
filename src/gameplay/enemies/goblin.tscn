@@ -24,6 +24,7 @@
 [ext_resource type="Script" uid="uid://mefdxsbhqrp1" path="res://src/gameplay/enemies/scripts/goblin_audio.gd" id="22_bhwgl"]
 [ext_resource type="AudioStream" uid="uid://3262lgon5bdm" path="res://assets/audio/SFX/GameSFX/goblin_sound1.mp3" id="23_i2ab5"]
 [ext_resource type="AudioStream" uid="uid://dlwxsfqnjalt2" path="res://assets/audio/SFX/GameSFX/goblin_sound2.mp3" id="24_i026b"]
+[ext_resource type="Texture2D" uid="uid://csdegdlw0s7t" path="res://assets/graphics/Objects/Money.png" id="25_i026b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mdkad"]
 shader = ExtResource("2_1smki")
@@ -321,6 +322,101 @@ region = Rect2(201, 176, 78, 4)
 atlas = ExtResource("8_60rwo")
 region = Rect2(279, 176, 2, 4)
 
+[sub_resource type="LabelSettings" id="LabelSettings_w0e8x"]
+font_color = Color(0.72156864, 0.65882355, 0.6039216, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.7647059)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3j1lj"]
+atlas = ExtResource("25_i026b")
+region = Rect2(4, 4, 8, 8)
+
+[sub_resource type="Animation" id="Animation_i026b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LootCoinsVisual:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-19, -40)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LootCoinsVisual:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LootCoinsVisual:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_gvwx8"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LootCoinsVisual:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-19, -40), Vector2(-19, -63)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LootCoinsVisual:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LootCoinsVisual:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w0e8x"]
+_data = {
+&"RESET": SubResource("Animation_i026b"),
+&"death": SubResource("Animation_gvwx8")
+}
+
 [node name="Goblin" type="CharacterBody2D" unique_id=1477561400]
 collision_layer = 8
 collision_mask = 15
@@ -451,12 +547,41 @@ weapon_component = NodePath("../../WeaponComponent")
 script = ExtResource("17_hyfhi")
 
 [node name="StateLabel" type="Label" parent="." unique_id=1129823333]
+visible = false
 offset_left = -31.0
 offset_top = -41.0
 offset_right = 33.0
 offset_bottom = -21.0
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="LootCoinsVisual" type="HBoxContainer" parent="." unique_id=1493114732]
+offset_left = -19.0
+offset_top = -40.0
+offset_right = 21.0
+offset_bottom = -20.0
+alignment = 1
+
+[node name="CoinsLabel" type="Label" parent="LootCoinsVisual" unique_id=1387734820]
+z_index = 1
+layout_mode = 2
+text = "+15"
+label_settings = SubResource("LabelSettings_w0e8x")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CoinTexture" type="TextureRect" parent="LootCoinsVisual" unique_id=327053418]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_scale = Vector2(1.4, 1.4)
+mouse_filter = 2
+texture = SubResource("AtlasTexture_3j1lj")
+stretch_mode = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=700031513]
+libraries/ = SubResource("AnimationLibrary_w0e8x")
 
 [node name="GoblinAudio" type="AudioStreamPlayer" parent="." unique_id=84755341]
 script = ExtResource("22_bhwgl")
