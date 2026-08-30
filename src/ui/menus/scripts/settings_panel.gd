@@ -42,7 +42,7 @@ func _ready() -> void:
 	back_button.text = button_name
 	
 	# Initial reesolution for ease of life
-	_on_resolutions_button_item_selected(6)
+	_on_resolutions_button_item_selected(2)
 
 ###  --- FULLSCREEN BUTTON --- ###
 func _on_fullscreen_toggled(toggled_on: bool) -> void:

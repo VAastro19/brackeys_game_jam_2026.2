@@ -65,7 +65,16 @@ func _main_button_pressed() -> void:
 			return
 
 		bought_sfx.play()
-		EventBus.OnSlotUnlocked.emit()
+		EconomyManager.real_coins -= price
+		EventBus.OnCoinUpdate.emit(EconomyManager.real_coins, Enums.CoinType.REAL)
+
+		match item_type:
+			Enums.ItemType.INVENTORY_UPGRADE:
+				EventBus.OnSlotUnlocked.emit()
+			Enums.ItemType.INCREASED_DAMAGE:
+				EventBus.OnDamageIncreased.emit()
+			Enums.ItemType.DOUBLE_FORAGE:
+				EventBus.OnForageIncreased.emit()
 
 	quantity -= 1
 	if quantity <= 0:
@@ -88,8 +97,17 @@ func _on_all_button_pressed() -> void:
 			return
 
 		bought_sfx.play()
-		EventBus.OnSlotUnlocked.emit()
-		EventBus.OnSlotUnlocked.emit()
+		EconomyManager.real_coins -= price * quantity
+		EventBus.OnCoinUpdate.emit(EconomyManager.real_coins, Enums.CoinType.REAL)
+
+		for i in range(quantity):
+			match item_type:
+				Enums.ItemType.INVENTORY_UPGRADE:
+					EventBus.OnSlotUnlocked.emit()
+				Enums.ItemType.INCREASED_DAMAGE:
+					EventBus.OnDamageIncreased.emit()
+				Enums.ItemType.DOUBLE_FORAGE:
+					EventBus.OnForageIncreased.emit()
 
 	quantity = 0
 	visible = false

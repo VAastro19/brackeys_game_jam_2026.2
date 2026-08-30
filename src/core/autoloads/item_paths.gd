@@ -15,5 +15,7 @@ var path: Dictionary[Enums.ItemType, String] = {
 	Enums.ItemType.MILK: "uid://dunwevqfwi60b",
 	Enums.ItemType.TOMATO: "uid://b7hgw7t50tfkm",
 	Enums.ItemType.WHEAT: "uid://c1d4nid2b3fs3",
-	Enums.ItemType.INVENTORY_UPGRADE: "uid://di7evdaumdeja"
+	Enums.ItemType.INVENTORY_UPGRADE: "uid://dcfp2cckrmsp5",
+	Enums.ItemType.DOUBLE_FORAGE: "uid://c0to0f82ss1ei",
+	Enums.ItemType.INCREASED_DAMAGE: "uid://beo128f77641h"
 }

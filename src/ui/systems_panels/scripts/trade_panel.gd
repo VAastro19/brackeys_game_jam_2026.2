@@ -14,12 +14,18 @@ var player: Player
 var interacted_npc: NPC = null
 var ongoing_trade: bool = false
 
-var upgrades_quantity: int = 2
+var inventory_upgrades_quantity: int = 2
+var forage_upgrades_quantity: int = 2
+var damage_upgrades_quantity: int = 2
 
 func _ready() -> void:
 	EventBus.OnNPCInteracted.connect(_begin_trade)
 	EventBus.OnScammed.connect(_update_trade_description)
-	EventBus.OnSlotUnlocked.connect(_FRANKENSTEIN_BUY)
+	
+	## Make it more sensible later
+	EventBus.OnSlotUnlocked.connect(_slot_bought)
+	EventBus.OnDamageIncreased.connect(_damage_bought)
+	EventBus.OnForageIncreased.connect(_forage_bought)
 
 	back_button.pressed.connect(_on_back_button_pressed)
 	player = get_tree().get_first_node_in_group("Player")
@@ -34,7 +40,8 @@ func _begin_trade(npc: NPC) -> void:
 	interacted_npc = npc
 	ongoing_trade = true
 
-	player_area.items = _generate_player_shop_items()
+	if not npc.is_seller:
+		player_area.items = _generate_player_shop_items()
 	player_area.setup_trade_area()
 	
 	merchant_area.items = _generate_merchant_shop_items()
@@ -62,18 +69,35 @@ func _generate_player_shop_items() -> Array[ShopItem]:
 	
 	return arr
 
-func _FRANKENSTEIN_BUY() -> void:
-	upgrades_quantity -= 1
+func _slot_bought() -> void:
+	inventory_upgrades_quantity -= 1
+
+func _damage_bought() -> void:
+	damage_upgrades_quantity -= 1
+
+func _forage_bought() -> void:
+	forage_upgrades_quantity -= 1
 
 func _generate_merchant_shop_items() -> Array[ShopItem]:
 	var arr: Array[ShopItem] = []
-	if upgrades_quantity <= 0:
+	if inventory_upgrades_quantity <= 0:
 		return arr
 	if interacted_npc.is_seller:
-		var shop_item = shop_item_scene.instantiate()
-		shop_item.item_type = Enums.ItemType.INVENTORY_UPGRADE
-		shop_item.quantity = upgrades_quantity
-		arr.append(shop_item)
+		var inventory_upgrade = shop_item_scene.instantiate()
+		inventory_upgrade.item_type = Enums.ItemType.INVENTORY_UPGRADE
+		inventory_upgrade.quantity = inventory_upgrades_quantity
+		arr.append(inventory_upgrade)
+		
+		var increased_damage = shop_item_scene.instantiate()
+		increased_damage.item_type = Enums.ItemType.INCREASED_DAMAGE
+		increased_damage.quantity = damage_upgrades_quantity
+		arr.append(increased_damage)
+		
+		var double_forage = shop_item_scene.instantiate()
+		double_forage.item_type = Enums.ItemType.DOUBLE_FORAGE
+		double_forage.quantity = forage_upgrades_quantity
+		arr.append(double_forage)
+		
 	return arr
 
 func _update_trade_description(fake_coins: int) -> void:

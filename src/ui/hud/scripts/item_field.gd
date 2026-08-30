@@ -27,10 +27,16 @@ class_name ItemField extends TextureRect
 var atlas_texture: AtlasTexture
 
 func _ready() -> void:
+	EventBus.OnItemRemoved.connect(_remove_item)
 	if atlas_texture == null:
 		atlas_texture = AtlasTexture.new()
 	_update_item(item_type)
 	_update_item_count(item_count)
+
+func _remove_item(type: Enums.ItemType, amount: int) -> void:
+	if not type == item_type:
+		return
+	item_count -= amount
 
 func _update_item(new_item: Enums.ItemType) -> void:
 	if new_item == Enums.ItemType.NONE:
@@ -40,11 +46,6 @@ func _update_item(new_item: Enums.ItemType) -> void:
 		if new_item != item_type:
 			var item_texture: Texture2D = load(ItemPath.path[new_item])
 			_load_texture(item_texture)
-
-		if item_count <= 0:
-			item_count = 1
-		else:
-			item_count += 1
 
 func _load_texture(new_texture: Texture2D) -> void:
 	if atlas_texture == null:

@@ -14,7 +14,10 @@ signal OnGoblinDead
 
 signal OnCoinUpdate(amount: int, coin_type: Enums.CoinType)
 signal OnScammed(amount: int)
+
 signal OnSlotUnlocked
+signal OnDamageIncreased
+signal OnForageIncreased
 
 signal OnItemRemoved(item_type: Enums.ItemType, amount: int)
 signal OnItemCollected(item: Item, amount: int)

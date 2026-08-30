@@ -3,6 +3,7 @@ class_name Player extends Entity
 
 @export var max_speed: float = 200.0
 @export var inventory_bar: InventoryBar
+@export var forage_skill: int = 1
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_label: Label = $StateLabel
@@ -19,6 +20,7 @@ var can_move: bool = true
 func _ready() -> void:
 	EventBus.OnItemClose.connect(_item_close)
 	EventBus.OnItemFar.connect(_item_far)
+	EventBus.OnForageIncreased.connect(_increase_forage_skill)
 	EventBus.OnNPCInteracted.connect(_interaction_lock)
 	EventBus.OnEndInteraction.connect(_interaction_unlock)
 	
@@ -37,8 +39,8 @@ func _input(event: InputEvent) -> void:
 func collect() -> void:
 	if nearby_item == null:
 		return
-	if inventory_bar.try_add_item(nearby_item.item_type):
-		EventBus.OnItemCollected.emit(nearby_item, 1)
+	if inventory_bar.try_add_item(nearby_item.item_type, forage_skill):
+		EventBus.OnItemCollected.emit(nearby_item, forage_skill)
 	else:
 		EventBus.UIError.emit()
 		animation_player.play("inventory_full")
@@ -50,6 +52,9 @@ func _item_close(item: Item) -> void:
 func _item_far() -> void:
 	can_collect = false
 	nearby_item = null
+
+func _increase_forage_skill() -> void:
+	forage_skill *= 2
 
 func _interaction_lock(_npc: NPC) -> void:
 	can_move = false

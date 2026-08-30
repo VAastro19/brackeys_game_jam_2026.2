@@ -24,6 +24,11 @@
 [ext_resource type="Script" uid="uid://d7uq42xa5hq" path="res://src/ui/systems_panels/scripts/interaction_root.gd" id="20_ysmpt"]
 [ext_resource type="PackedScene" uid="uid://cl7maiqrtkix5" path="res://src/ui/systems_panels/dialogue_displayer.tscn" id="21_6027f"]
 [ext_resource type="PackedScene" uid="uid://x4fsp0p46mk4" path="res://src/ui/systems_panels/trade_panel.tscn" id="22_8etuo"]
+[ext_resource type="Script" uid="uid://chei2wymiwq63" path="res://src/ui/systems_panels/scripts/pause_root.gd" id="25_ysmpt"]
+[ext_resource type="PackedScene" uid="uid://bigdhytncwuij" path="res://src/ui/menus/settings_panel.tscn" id="26_6027f"]
+[ext_resource type="PackedScene" uid="uid://ctebcabyvcq82" path="res://src/ui/menus/are_you_sure_box.tscn" id="27_8etuo"]
+[ext_resource type="Texture2D" uid="uid://688uxvffxo0" path="res://assets/graphics/UI/keyboard-&-mouse_sheet_default.png" id="28_6ww8l"]
+[ext_resource type="PackedScene" uid="uid://c5tmbiwoeg8xx" path="res://src/ui/menus/corner_details.tscn" id="29_ryb3c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_thals"]
 shader = ExtResource("2_ioofs")
@@ -3154,6 +3159,19 @@ shader_parameter/saturation = 0.7
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1mlhl"]
 size = Vector2(81, 37)
 
+[sub_resource type="LabelSettings" id="LabelSettings_kamni"]
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.6039216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eydew"]
+atlas = ExtResource("28_6ww8l")
+region = Rect2(392, 648, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ncft"]
+atlas = ExtResource("28_6ww8l")
+region = Rect2(136, 200, 48, 48)
+
 [node name="Ending" type="Node" unique_id=1698894125 node_paths=PackedStringArray("mason", "ending_talk")]
 script = ExtResource("1_25kdo")
 mason = NodePath("World/EntityRoot/Mason")
@@ -3352,4 +3370,118 @@ grow_vertical = 0
 
 [node name="TradePanel" parent="InteractionLayer/InteractionRoot" unique_id=1855679526 instance=ExtResource("22_8etuo")]
 visible = false
+layout_mode = 1
+
+[node name="PauseLayer" type="CanvasLayer" parent="." unique_id=1830157092]
+layer = 20
+
+[node name="PauseRoot" type="Control" parent="PauseLayer" unique_id=1623425619]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("25_ysmpt")
+
+[node name="Background" type="Panel" parent="PauseLayer/PauseRoot" unique_id=1932209888]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsPanel" parent="PauseLayer/PauseRoot" unique_id=1733609798 instance=ExtResource("26_6027f")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -140.0
+offset_right = 90.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+button_name = "Quit"
+
+[node name="AreYouSureBox" parent="PauseLayer/PauseRoot" unique_id=1783175538 instance=ExtResource("27_8etuo")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.5
+offset_top = -40.5
+offset_right = 117.5
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+box_text = "Are you sure you want to quit?"
+
+[node name="InputPrompt" type="Control" parent="PauseLayer/PauseRoot" unique_id=1121350153]
+modulate = Color(0.72156864, 0.65882355, 0.6039216, 1)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -116.0
+offset_top = 20.0
+offset_right = -18.0
+offset_bottom = 70.0
+grow_horizontal = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseLayer/PauseRoot/InputPrompt" unique_id=1302949235]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -168.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = 73.0
+grow_horizontal = 0
+
+[node name="InteractPrompt" type="HBoxContainer" parent="PauseLayer/PauseRoot/InputPrompt/VBoxContainer" unique_id=1048925732]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="Label" type="Label" parent="PauseLayer/PauseRoot/InputPrompt/VBoxContainer/InteractPrompt" unique_id=1749156552]
+layout_mode = 2
+text = "Interact"
+label_settings = SubResource("LabelSettings_kamni")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PauseLayer/PauseRoot/InputPrompt/VBoxContainer/InteractPrompt" unique_id=1539604264]
+layout_mode = 2
+texture = SubResource("AtlasTexture_eydew")
+expand_mode = 2
+
+[node name="AttackPrompt" type="HBoxContainer" parent="PauseLayer/PauseRoot/InputPrompt/VBoxContainer" unique_id=283138947]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="Label" type="Label" parent="PauseLayer/PauseRoot/InputPrompt/VBoxContainer/AttackPrompt" unique_id=481365169]
+layout_mode = 2
+text = "Attack"
+label_settings = SubResource("LabelSettings_kamni")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PauseLayer/PauseRoot/InputPrompt/VBoxContainer/AttackPrompt" unique_id=1038849093]
+layout_mode = 2
+texture = SubResource("AtlasTexture_8ncft")
+expand_mode = 2
+
+[node name="CornerDetails" parent="PauseLayer/PauseRoot" unique_id=1525519473 instance=ExtResource("29_ryb3c")]
 layout_mode = 1

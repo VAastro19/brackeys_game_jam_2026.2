@@ -15,7 +15,9 @@ var descriptions: Dictionary[Enums.ItemType, String] = {
 	Enums.ItemType.MILK: 	 "Not implemented",
 	Enums.ItemType.TOMATO: 	 "Squishy red vegetable... or  a fruit",
 	Enums.ItemType.WHEAT:	 "Basis of agriculture",
-	Enums.ItemType.INVENTORY_UPGRADE: "Expands your inventory slot by one"
+	Enums.ItemType.INVENTORY_UPGRADE: "Expands your inventory slot by one",
+	Enums.ItemType.DOUBLE_FORAGE: "Doubles the amount of forage you pick up",
+	Enums. ItemType.INCREASED_DAMAGE: "Increases your weapon's damage"
 }
 
 var string_names: Dictionary[Enums.ItemType, String] = {
@@ -32,7 +34,9 @@ var string_names: Dictionary[Enums.ItemType, String] = {
 	Enums.ItemType.MILK: 	 "Not implemented",
 	Enums.ItemType.TOMATO: 	 "Tomato",
 	Enums.ItemType.WHEAT:	 "Wheat",
-	Enums.ItemType.INVENTORY_UPGRADE: "Inventory Upgrade"
+	Enums.ItemType.INVENTORY_UPGRADE: "Inventory Upgrade",
+	Enums.ItemType.DOUBLE_FORAGE: "Double Forage",
+	Enums. ItemType.INCREASED_DAMAGE: "Increased Damage"
 }
 
 var item_prices: Dictionary[Enums.ItemType, int] = {
@@ -49,5 +53,7 @@ var item_prices: Dictionary[Enums.ItemType, int] = {
 	Enums.ItemType.MILK: 7,
 	Enums.ItemType.TOMATO: 2,
 	Enums.ItemType.WHEAT: 4,
-	Enums.ItemType.INVENTORY_UPGRADE: 200
+	Enums.ItemType.INVENTORY_UPGRADE: 100,
+	Enums.ItemType.DOUBLE_FORAGE: 200,
+	Enums. ItemType.INCREASED_DAMAGE: 150
 }

@@ -14,7 +14,7 @@ func _unlock_slot() -> void:
 			slot.is_unlocked = true
 			return
 
-func try_add_item(collected_item: Enums.ItemType) -> bool:
+func try_add_item(collected_item: Enums.ItemType, forage_skill: int) -> bool:
 	var found_slot: bool = false
 	var free_slot: ItemField = null
 	for slot in slots:
@@ -26,6 +26,7 @@ func try_add_item(collected_item: Enums.ItemType) -> bool:
 		# If found item of same type, break the loop and add it
 		if slot.item_type == collected_item:
 			slot.item_type = collected_item
+			slot.item_count += forage_skill
 			return true
 
 		# Skip filled slots of different type
@@ -40,6 +41,7 @@ func try_add_item(collected_item: Enums.ItemType) -> bool:
 	# If slot with the same item type was not found, add it to the first free slot found or deny
 	if found_slot:
 		free_slot.item_type = collected_item
+		free_slot.item_count += forage_skill
 		return true
 	else:
 		return false
